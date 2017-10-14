@@ -1,6 +1,6 @@
 <p align="center"><img src="https://github.com/eltoncrego/vroom-app/blob/master/assets/android.png?raw=true" width="150"></p>
 
-#Building the Application for the First Time
+# Building the Application for the First Time
 ## On Mac
 1. Make sure you have npm installed
 2. Clone the repository into your desired location
