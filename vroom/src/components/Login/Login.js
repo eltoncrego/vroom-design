@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     width: 120,
   },
   googleimg: {
-    height: 200,
-    width: 200,
+    height: 250,
+    width: 250,
   },
   vroom: {
     fontFamily: 'Nunito',
