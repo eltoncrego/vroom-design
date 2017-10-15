@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
 import FadeImage from 'react-native-fade-image';
 
@@ -22,12 +23,13 @@ export default class Login extends Component {
           <Text style={styles.vroom}>vroom</Text>
         </View>
         <View style={styles.login}>
+        <TouchableOpacity>
           <FadeImage
-            style={styles.googleimg}
             source={require('../../../assets/img/google_signin.png')}
             resizeMode='contain'
             duration={1000}
           />
+        </TouchableOpacity>
         </View>
       </View>
     );
@@ -42,7 +44,6 @@ const styles = StyleSheet.create({
     backgroundColor: GLOBAL.COLOR.DARKGRAY,
   },
   header: {
-    flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -50,10 +51,7 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
   },
-  googleimg: {
-    height: 250,
-    width: 250,
-  },
+
   vroom: {
     fontFamily: 'Nunito',
     fontWeight: 'bold',
@@ -62,6 +60,5 @@ const styles = StyleSheet.create({
     color: GLOBAL.COLOR.GREEN
   },
   login: {
-    flex: 2
   },
 });
