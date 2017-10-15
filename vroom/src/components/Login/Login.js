@@ -23,7 +23,7 @@ export default class Login extends Component {
           <Text style={styles.vroom}>vroom</Text>
         </View>
         <View style={styles.login}>
-        <TouchableOpacity>
+        <TouchableOpacity activeOpacity={0.8}>
           <FadeImage
             source={require('../../../assets/img/google_signin.png')}
             resizeMode='contain'
@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
   },
-
   vroom: {
     fontFamily: 'Nunito',
     fontWeight: 'bold',
