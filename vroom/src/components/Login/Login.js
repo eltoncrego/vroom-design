@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   vroom: {
     fontFamily: 'Nunito',
-    fontWeight: 'bold',
+    fontWeight: '900',
     textAlign: 'center',
     fontSize: 75,
     color: GLOBAL.COLOR.GREEN
