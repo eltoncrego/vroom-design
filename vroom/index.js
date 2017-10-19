@@ -1,6 +1,7 @@
 import { AppRegistry } from 'react-native';
 import React, { Component } from 'react';
 import Login from './src/components/Login/Login';
+import Onboarding from './src/components/Onboarding/Onboarding';
 
 // GLOBAL = require('./src/Globals');
 
@@ -35,7 +36,7 @@ export default class vroom extends Component<{}> {
         // <Text style={styles.instructions}>
         //   powered by React Native
         // </Text>
-        <Login/>
+        <Onboarding/>
     );
   }
 }
