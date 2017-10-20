@@ -38,6 +38,7 @@ export default class Onboarding extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text>HALLO</Text>
       </View>
     );
   }
@@ -46,7 +47,7 @@ export default class Onboarding extends Component {
 /*
  * Styles for this Page
  * Author: Elton C. Rego
- * /
+ */
 const styles = StyleSheet.create({
   container: {
     flex: 1,

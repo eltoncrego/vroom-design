@@ -59,14 +59,9 @@ export default class Login extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <FadeImage
-            style={styles.logoimg}
-            source={require('../../../assets/img/car-good.png')}
-            resizeMode='contain'
-            duration={1000}
-          />
           <Text style={styles.vroom}>vroom</Text>
-        </View>
+          <Text style={styles.tagline}>The app that keeps your car happy!</Text>
+	</View>
         <View style={styles.login}>
         <TouchableOpacity activeOpacity={0.8} 
 	    onPress={
@@ -87,7 +82,8 @@ export default class Login extends Component {
 /*
  * Styles for this Page
  * Author: Connick Shields
- * /
+ *
+ */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -107,8 +103,16 @@ const styles = StyleSheet.create({
     fontFamily: 'Nunito',
     fontWeight: '900',
     textAlign: 'center',
-    fontSize: 75,
-    color: GLOBAL.COLOR.GREEN
+    fontSize: 80,
+    color: GLOBAL.COLOR.GREEN,
+    marginBottom: -20
+  },
+  tagline: {
+    fontFamily: 'Nunito',
+    textAlign: 'center',
+    fontSize: 20,
+    color: '#ffffff',
+    marginBottom: 20
   },
   login: {
   },
