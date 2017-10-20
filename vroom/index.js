@@ -1,4 +1,4 @@
-import { AppRegistry, NavigatorIOS, StyleSheet, Animated } from 'react-native';
+import { AppRegistry, NavigatorIOS, StyleSheet, } from 'react-native';
 import React, { Component } from 'react';
 import Login from './src/components/Login/Login';
 import Onboarding from './src/components/Onboarding/Onboarding';
@@ -33,7 +33,6 @@ export default class vroom extends Component<{}> {
    */
   render() {
     return (
-
         <NavigatorIOS
           style = {styles.container}
           initialRoute={{
