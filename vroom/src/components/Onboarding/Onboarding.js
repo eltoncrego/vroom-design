@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontFamily: 'Nunito',
     fontWeight: '900',
+    color: GLOBAL.COLOR.DARKGRAY,
     textAlign: 'center',
     fontSize: 40,
     marginTop: 32,
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
   cardText: {
     fontFamily: 'Nunito',
     textAlign: 'center',
+    color: GLOBAL.COLOR.DARKGRAY,
     fontSize: 20,
     marginBottom: 32,
   },

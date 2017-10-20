@@ -96,8 +96,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logoimg: {
-    height: 120,
-    width: 120,
+    height: 111,
+    width: 131,
   },
   vroom: {
     fontFamily: 'Nunito',
