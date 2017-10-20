@@ -3,13 +3,24 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert,
 } from 'react-native';
 import FadeImage from 'react-native-fade-image';
+import Onboarding from '../Onboarding/Onboarding';
 
 GLOBAL = require('../../Globals');
 
 export default class Login extends Component {
+
+  goToOnboarding() {
+    this.props.navigator.push({
+      component: Onboarding,
+      title: 'Onboarding',
+      navigationBarHidden: true
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -23,7 +34,7 @@ export default class Login extends Component {
           <Text style={styles.vroom}>vroom</Text>
         </View>
         <View style={styles.login}>
-        <TouchableOpacity activeOpacity={0.8}>
+        <TouchableOpacity activeOpacity={0.8} onPress={() => this.goToOnboarding()}>
           <FadeImage
             source={require('../../../assets/img/google_signin.png')}
             resizeMode='contain'

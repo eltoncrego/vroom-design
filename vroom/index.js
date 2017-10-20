@@ -1,4 +1,4 @@
-import { AppRegistry } from 'react-native';
+import { AppRegistry, NavigatorIOS, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import Login from './src/components/Login/Login';
 import Onboarding from './src/components/Onboarding/Onboarding';
@@ -21,6 +21,15 @@ export default class vroom extends Component<{}> {
   //   });
   // }
 
+   // return (
+   //    <Navigator
+   //      initialRoute={{ title: 'My Initial Scene', index: 0 }}
+   //      renderScene={(route, navigator) => {
+   //        <MyScene title={route.title} />
+   //      }}
+   //    />
+   //  );
+
   render() {
     return (
         // <TouchableHighlight
@@ -36,7 +45,17 @@ export default class vroom extends Component<{}> {
         // <Text style={styles.instructions}>
         //   powered by React Native
         // </Text>
-        <Onboarding/>
+
+        <NavigatorIOS
+          style = {styles.container}
+          initialRoute={{
+            title: "Login Page",
+            navigationBarHidden: true,
+            component: Login
+          }}/>
+
+        // <Login/>
+        // <Onboarding/>
     );
   }
 }
@@ -63,5 +82,12 @@ export default class vroom extends Component<{}> {
 //     marginBottom: 5,
 //   },
 // });
+
+
+    const styles = StyleSheet.create({
+      container: {
+        flex: 1,
+      }
+    });
 
 AppRegistry.registerComponent('vroom', () => vroom);
