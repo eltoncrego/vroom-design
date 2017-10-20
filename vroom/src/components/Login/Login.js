@@ -8,12 +8,72 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Alert,
+  Animated,
 } from 'react-native';
 import FadeImage from 'react-native-fade-image';
 import Onboarding from '../Onboarding/Onboarding';
 
 GLOBAL = require('../../Globals');
+
+
+/*
+ * Class: FadeInView
+ * Author: Elton C. Rego
+ *
+ * Purpose: Creates a special animateable object for Fading in
+ */ 
+class FadeInView extends Component {
+
+  /*
+   * state: 
+   * Author: Elton C. Rego
+   * 
+   * Purpose: Sets the initial opacity of a fade in component to 0
+   */
+  state = {
+    fadeAnim: new Animated.Value(0),
+  }
+
+  /*
+   * Method: componentDidMount()
+   * Author: Elton C. Rego
+   * 
+   * Purpose: Sets the current state to an opacity of 1 over
+   *   a duration of 1000ms
+   *
+   * Warning: Do not change name!
+   */
+  componentDidMount() {
+    Animated.timing(                  
+      this.state.fadeAnim,           
+      {
+        toValue: 1,       
+        duration: 1000,             
+      }
+    ).start();                   
+  }
+
+  /*
+   * Method: render
+   * Author: Elton C. Rego
+   *
+   * Purpose: Creates the fade in animation on render
+   *
+   */
+  render() {
+    let { fadeAnim } = this.state;
+
+    return (
+      <Animated.View                 
+        style={{
+          opacity: fadeAnim,        
+        }}
+      >
+        {this.props.children}
+      </Animated.View>
+    );
+  }
+}
 
 /* 
  * Class: Login
@@ -58,10 +118,10 @@ export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
+        <FadeInView style={styles.header}>
           <Text style={styles.vroom}>vroom</Text>
-          <Text style={styles.tagline}>The app that keeps your car happy!</Text>
-	      </View>
+          <Text style={styles.tag_line}>The app that keeps your car happy!</Text>
+	      </FadeInView>
         <View style={styles.login}>
         <TouchableOpacity activeOpacity={0.8} 
     	    onPress={
@@ -70,7 +130,7 @@ export default class Login extends Component {
           <FadeImage
             source={require('../../../assets/img/google_signin.png')}
             resizeMode='contain'
-            duration={1000}
+            duration={1500}
           />
         </TouchableOpacity>
         </View>
@@ -124,7 +184,7 @@ const styles = StyleSheet.create({
    * Author: Connick Shields
    * Purpose: This styles the tagline of the application
    */
-  tagline: {
+  tag_line: {
     fontFamily: 'Nunito',
     textAlign: 'center',
     fontSize: 20,

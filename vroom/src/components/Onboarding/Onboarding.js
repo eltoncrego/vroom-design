@@ -9,7 +9,8 @@ import {
   Button,
   Image,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import Login from '../Login/Login';
 
@@ -58,22 +59,22 @@ export default class Onboarding extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.card}>
-  	      <Text style={styles.cardTitle}>{"It's Me!"}</Text>
+  	      <Text style={styles.card_title}>{"It's Me!"}</Text>
   	      <Image 
-    	      style={styles.cardRevi} 
+    	      style={styles.revi} 
     	      source={require('../../../assets/img/car-good.png')} 
   	      />
-  	      <Text style={styles.cardText}>{"I'm your car!"}</Text>
+  	      <Text style={styles.card_text}>{"I'm your car!"}</Text>
 	      </View>
-      <TouchableOpacity 
-        activeOpacity={0.8} 
-        onPress={
-          () => this.goToLoginPage()
-        }>
-        <Text style={styles.buttonStyle}>
-          {"Go Back to Login"}
-        </Text>
-      </TouchableOpacity>
+        <TouchableOpacity 
+          activeOpacity={0.8} 
+          onPress={
+            () => this.goToLoginPage()
+          }>
+          <Text style={styles.button_style}>
+            {"Go Back to Login"}
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -96,8 +97,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: GLOBAL.COLOR.DARKGRAY,
   },
+  /*
+   * Style: scroll
+   * Author: Elton C. Rego
+   * Purpose: This styles the entire background of the scroll
+   */
+  // scroll: {
+  //   alignContent: 'center',
+  //   width: '100%',
+  //   paddingVertical: 20,
+  // },
    /*
-   * Style: Container
+   * Style: Card
    * Author: Elton C. Rego
    * Purpose: This styles the card view within this page
    */
@@ -108,13 +119,14 @@ const styles = StyleSheet.create({
     borderRadius:10,
     justifyContent: 'space-between',
     alignItems: 'center',
+    margin: 16,
   },
    /*
-   * Style: Container
+   * Style: Card Title
    * Author: Elton C. Rego
    * Purpose: This styles the card titles on this page
    */
-  cardTitle: {
+  card_title: {
     fontFamily: 'Nunito',
     fontWeight: '900',
     color: GLOBAL.COLOR.DARKGRAY,
@@ -123,11 +135,11 @@ const styles = StyleSheet.create({
     marginTop: 32,
   },
    /*
-   * Style: Container
+   * Style: Card Text
    * Author: Elton C. Rego
    * Purpose: This styles the card descriptions
    */
-  cardText: {
+  card_text: {
     fontFamily: 'Nunito',
     textAlign: 'center',
     color: GLOBAL.COLOR.DARKGRAY,
@@ -135,22 +147,22 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
    /*
-   * Style: Container
+   * Style: Revi
    * Author: Elton C. Rego
-   * Purpose: This styles the Revi's on each card
+   * Purpose: This styles the Revis on each card
    */
-  cardRevi: {
+  revi: {
     resizeMode: 'contain',
     height: 120,
     width: 120,
   },
    /*
-   * Style: Container
+   * Style: Button Style
    * Author: Elton C. Rego
    * Purpose: This styles the button to go back to the
    *   Login Page
    */
-  buttonStyle: {
+  button_style: {
     color: GLOBAL.COLOR.GREEN,
     fontFamily: 'Nunito',
     textAlign: 'center',
