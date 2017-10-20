@@ -46,6 +46,13 @@ export default class vroom extends Component<{}> {
   }
 }
 
+/*
+ * StyleSheet: styles
+ * Author: Connick Shields
+ * 
+ * Purpose: Creates the styling rules for the overall 
+ *   application.
+ */
 const styles = StyleSheet.create({
   container: {
     flex: 1,

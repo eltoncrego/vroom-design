@@ -6,10 +6,12 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
+  Button,
   Image,
   StyleSheet,
   TouchableOpacity
 } from 'react-native';
+import Login from '../Login/Login';
 
 GLOBAL = require('../../Globals');
 
@@ -27,6 +29,22 @@ GLOBAL = require('../../Globals');
  * TODO: Take in make, model, and year and end this screen
  */
 export default class Onboarding extends Component {
+
+  /*
+   * Method: goToPage()
+   * Author: Elton C. Rego
+   *
+   * Purpose: On invocation, will push the LoginPage
+   *   component onto the view stack.
+   *   (Loads the screen.)
+   */
+  goToLoginPage() {
+    this.props.navigator.push({
+      component: Login,
+      title: 'Login to Vroom',
+      navigationBarHidden: true
+    });
+  }
 
   /*
    * Method: render
@@ -47,6 +65,13 @@ export default class Onboarding extends Component {
 	    />
 	    <Text style={styles.cardText}>{"I'm your car!"}</Text>
 	</View>
+      <Button 
+        style={styles.buttonStyle}
+        onPress={ () => this.goToLoginPage() }
+        title="Go Back to Login"
+        color='#9FD356'
+        accessibilityLabel="Learn more about this purple button">
+      </Button>
       </View>
     );
   }
