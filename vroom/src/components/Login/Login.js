@@ -1,3 +1,7 @@
+/*
+ * Import all the necessary components for this page.
+ * Please delete components that aren't used.
+ */
 import React, { Component } from 'react';
 import {
   View,
@@ -11,8 +15,29 @@ import Onboarding from '../Onboarding/Onboarding';
 
 GLOBAL = require('../../Globals');
 
+/* 
+ * Class: Login
+ * Author: Connick Shields and Elton C.  Rego
+ *
+ * Purpose: The Login class will render the application's
+ *   Login screen.
+ *
+ * TODO: Impliment the next screen as being an actual log
+ *   in with Google screen.
+ */
 export default class Login extends Component {
 
+  /*
+   * Method: goToOnboarding()
+   * Author: Elton C. Rego
+   *
+   * Purpose: On invocation, will push the Onboarding
+   *   component onto the view stack.
+   *   (Loads the onboarding screen.)
+   *
+   * TODO: When login is implimented, replace with login
+   *   with Google screen.
+   */
   goToOnboarding() {
     this.props.navigator.push({
       component: Onboarding,
@@ -21,6 +46,15 @@ export default class Login extends Component {
     });
   }
 
+  /*
+   * Method: render
+   * Author: Connick Shields
+   *
+   * Purpose: Renders the Login Page.
+   *  The login page has a Revi character, the text logo
+   *  and a login with Google button.
+   *
+   */
   render() {
     return (
       <View style={styles.container}>
@@ -34,7 +68,10 @@ export default class Login extends Component {
           <Text style={styles.vroom}>vroom</Text>
         </View>
         <View style={styles.login}>
-        <TouchableOpacity activeOpacity={0.8} onPress={() => this.goToOnboarding()}>
+        <TouchableOpacity activeOpacity={0.8} 
+	    onPress={
+		    () => this.goToOnboarding()
+	    }>
           <FadeImage
             source={require('../../../assets/img/google_signin.png')}
             resizeMode='contain'
@@ -47,6 +84,10 @@ export default class Login extends Component {
   }
 }
 
+/*
+ * Styles for this Page
+ * Author: Connick Shields
+ * /
 const styles = StyleSheet.create({
   container: {
     flex: 1,

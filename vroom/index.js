@@ -3,48 +3,36 @@ import React, { Component } from 'react';
 import Login from './src/components/Login/Login';
 import Onboarding from './src/components/Onboarding/Onboarding';
 
-// GLOBAL = require('./src/Globals');
+GLOBAL = require('./src/Globals');
 
-
+/*
+ * Class: vroom
+ * Author: Connick Shields & Elton C. Rego
+ *
+ * Purpose: Renders the default page of the application.
+ *   In this case, the default page is the Login page.
+ *
+ * TODO: Add logic to determine if a user is already
+ *   logged in.
+ * TODO: Imliment legitimate login page.
+ *
+ */
 export default class vroom extends Component<{}> {
-  // constructor(){
-  //   super();
-  //   this.state = {
-  //     google: require('./assets/img/google_light.png')
-  //   }
-  // }
 
-  // changeLogo() {
-  //   //console.log('state changed!');
-  //   this.setState({
-  //     google: require('./assets/img/google_light_pressed.png')
-  //   });
-  // }
-
-   // return (
-   //    <Navigator
-   //      initialRoute={{ title: 'My Initial Scene', index: 0 }}
-   //      renderScene={(route, navigator) => {
-   //        <MyScene title={route.title} />
-   //      }}
-   //    />
-   //  );
-
+  /*
+   * Method: render
+   * Author: Connick Shields & Elton C. Rego
+   *
+   * Purpose: Renders the navigator object.
+   *   The navigator object will run the Login
+   *   component and allows us to navigate between
+   *   pages in the application.
+   *
+   * TODO: Verify if user is already logged in before
+   *   determining which page to render.
+   */
   render() {
     return (
-        // <TouchableHighlight
-        //   onPress={() => this.changeLogo()}
-        // >
-        //   <Image
-        //     source = {this.state.google}
-        //   />
-        // </TouchableHighlight>
-        // <Text style={styles.welcome}>
-        //   Welcome to Vroom!
-        // </Text>
-        // <Text style={styles.instructions}>
-        //   powered by React Native
-        // </Text>
 
         <NavigatorIOS
           style = {styles.container}
@@ -54,40 +42,14 @@ export default class vroom extends Component<{}> {
             component: Login
           }}/>
 
-        // <Login/>
-        // <Onboarding/>
     );
   }
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: GLOBAL.COLOR.GRAY,
-//   },
-//   welcome: {
-//     fontFamily: 'Nunito',
-//     fontWeight: 'bold',
-//     fontSize: 20,
-//     color: GLOBAL.COLOR.BLUE,
-//     textAlign: 'center',
-//     margin: 10,
-//   },
-//   instructions: {
-//     fontFamily: 'Nunito',
-//     textAlign: 'center',
-//     color: GLOBAL.COLOR.DARKBLUE,
-//     marginBottom: 5,
-//   },
-// });
-
-
-    const styles = StyleSheet.create({
-      container: {
-        flex: 1,
-      }
-    });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  }
+});
 
 AppRegistry.registerComponent('vroom', () => vroom);
