@@ -58,13 +58,13 @@ export default class Onboarding extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.card}>
-	    <Text style={styles.cardTitle}>{"It's Me!"}</Text>
-	    <Image 
-	      style={styles.cardRevi} 
-	      source={require('../../../assets/img/car-good.png')} 
-	    />
-	    <Text style={styles.cardText}>{"I'm your car!"}</Text>
-	</View>
+  	      <Text style={styles.cardTitle}>{"It's Me!"}</Text>
+  	      <Image 
+    	      style={styles.cardRevi} 
+    	      source={require('../../../assets/img/car-good.png')} 
+  	      />
+  	      <Text style={styles.cardText}>{"I'm your car!"}</Text>
+	      </View>
       <TouchableOpacity 
         activeOpacity={0.8} 
         onPress={
