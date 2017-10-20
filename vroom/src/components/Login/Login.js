@@ -61,12 +61,12 @@ export default class Login extends Component {
         <View style={styles.header}>
           <Text style={styles.vroom}>vroom</Text>
           <Text style={styles.tagline}>The app that keeps your car happy!</Text>
-	</View>
+	      </View>
         <View style={styles.login}>
         <TouchableOpacity activeOpacity={0.8} 
-	    onPress={
-		    () => this.goToOnboarding()
-	    }>
+    	    onPress={
+    		    () => this.goToOnboarding()
+    	    }>
           <FadeImage
             source={require('../../../assets/img/google_signin.png')}
             resizeMode='contain'

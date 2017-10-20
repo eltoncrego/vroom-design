@@ -84,12 +84,23 @@ export default class Onboarding extends Component {
  * Author: Elton C. Rego
  */
 const styles = StyleSheet.create({
+
+  /*
+   * Style: Container
+   * Author: Elton C. Rego
+   * Purpose: This styles the entire background of this page
+   */
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: GLOBAL.COLOR.DARKGRAY,
   },
+   /*
+   * Style: Container
+   * Author: Elton C. Rego
+   * Purpose: This styles the card view within this page
+   */
   card: {
     height: 344,
     width: '80%',
@@ -98,6 +109,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+   /*
+   * Style: Container
+   * Author: Elton C. Rego
+   * Purpose: This styles the card titles on this page
+   */
   cardTitle: {
     fontFamily: 'Nunito',
     fontWeight: '900',
@@ -106,6 +122,11 @@ const styles = StyleSheet.create({
     fontSize: 40,
     marginTop: 32,
   },
+   /*
+   * Style: Container
+   * Author: Elton C. Rego
+   * Purpose: This styles the card descriptions
+   */
   cardText: {
     fontFamily: 'Nunito',
     textAlign: 'center',
@@ -113,11 +134,22 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 32,
   },
+   /*
+   * Style: Container
+   * Author: Elton C. Rego
+   * Purpose: This styles the Revi's on each card
+   */
   cardRevi: {
     resizeMode: 'contain',
     height: 120,
     width: 120,
   },
+   /*
+   * Style: Container
+   * Author: Elton C. Rego
+   * Purpose: This styles the button to go back to the
+   *   Login Page
+   */
   buttonStyle: {
     color: GLOBAL.COLOR.GREEN,
     fontFamily: 'Nunito',
