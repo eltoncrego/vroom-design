@@ -85,20 +85,32 @@ export default class Login extends Component {
  *
  */
 const styles = StyleSheet.create({
+
+  /*
+   * Style: Container
+   * Author: Connick Shields
+   * Purpose: This styles the card titles on this page
+   */
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: GLOBAL.COLOR.DARKGRAY,
   },
+  /*
+   * Style: Container
+   * Author: Connick Shields
+   * Purpose: This styles the header part of this page
+   */
   header: {
     justifyContent: 'center',
     alignItems: 'center',
   },
-  logoimg: {
-    height: 111,
-    width: 131,
-  },
+  /*
+   * Style: Container
+   * Author: Connick Shields
+   * Purpose: This styles the title page of the app
+   */
   vroom: {
     fontFamily: 'Nunito',
     fontWeight: '900',
@@ -107,13 +119,16 @@ const styles = StyleSheet.create({
     color: GLOBAL.COLOR.GREEN,
     marginBottom: -20
   },
+  /*
+   * Style: Container
+   * Author: Connick Shields
+   * Purpose: This styles the tagline of the application
+   */
   tagline: {
     fontFamily: 'Nunito',
     textAlign: 'center',
     fontSize: 20,
     color: '#ffffff',
     marginBottom: 20
-  },
-  login: {
   },
 });
