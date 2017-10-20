@@ -65,13 +65,15 @@ export default class Onboarding extends Component {
 	    />
 	    <Text style={styles.cardText}>{"I'm your car!"}</Text>
 	</View>
-      <Button 
-        style={styles.buttonStyle}
-        onPress={ () => this.goToLoginPage() }
-        title="Go Back to Login"
-        color='#9FD356'
-        accessibilityLabel="Learn more about this purple button">
-      </Button>
+      <TouchableOpacity 
+        activeOpacity={0.8} 
+        onPress={
+          () => this.goToLoginPage()
+        }>
+        <Text style={styles.buttonStyle}>
+          {"Go Back to Login"}
+        </Text>
+      </TouchableOpacity>
       </View>
     );
   }
@@ -116,5 +118,12 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
   },
+  buttonStyle: {
+    color: GLOBAL.COLOR.GREEN,
+    fontFamily: 'Nunito',
+    textAlign: 'center',
+    fontSize: 20,
+    marginTop: 32,
+  }
 
 });
