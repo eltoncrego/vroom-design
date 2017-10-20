@@ -2,11 +2,3 @@
   "name": "vroom",
   "displayName": "vroom"
 }
-
-{
-	"expo": {
-	    "name": "vroom",
-	    "slug": "vroom-app",
-	    "sdkVersion": "22.0.0"
- 	}
-}
