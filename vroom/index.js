@@ -1,9 +1,15 @@
 import { AppRegistry, NavigatorIOS, StyleSheet } from 'react-native';
+import { StackNavigator} from 'react-navigation';
 import React, { Component } from 'react';
 import Login from './src/components/Login/Login';
 import Onboarding from './src/components/Onboarding/Onboarding';
 
 GLOBAL = require('./src/Globals');
+
+const App = StackNavigator({
+  Login: { screen: Login },
+  Onboarding: { screen: Onboarding },
+});
 
 /*
  * Class: vroom

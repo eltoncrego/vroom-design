@@ -1,3 +1,4 @@
+npm install exp --global
 npm install -g watchman
 npm install -g yarn
 npm install -g react-native-cli
