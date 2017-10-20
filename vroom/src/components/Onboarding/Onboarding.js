@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
+  Image,
   StyleSheet,
   TouchableOpacity
 } from 'react-native';
@@ -38,7 +39,14 @@ export default class Onboarding extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>HALLO</Text>
+        <View style={styles.card}>
+	    <Text style={styles.cardTitle}>{"It's Me!"}</Text>
+	    <Image 
+	      style={styles.cardRevi} 
+	      source={require('../../../assets/img/car-good.png')} 
+	    />
+	    <Text style={styles.cardText}>{"I'm your car!"}</Text>
+	</View>
       </View>
     );
   }
@@ -55,4 +63,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: GLOBAL.COLOR.DARKGRAY,
   },
+  card: {
+    height: 344,
+    width: '80%',
+    backgroundColor: '#ffffff',
+    borderRadius:10,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  cardTitle: {
+    fontFamily: 'Nunito',
+    fontWeight: '900',
+    textAlign: 'center',
+    fontSize: 40,
+    marginTop: 32,
+  },
+  cardText: {
+    fontFamily: 'Nunito',
+    textAlign: 'center',
+    fontSize: 20,
+    marginBottom: 32,
+  },
+  cardRevi: {
+    resizeMode: 'contain',
+    height: 120,
+    width: 120,
+  },
+
 });
