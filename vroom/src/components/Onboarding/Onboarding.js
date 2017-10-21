@@ -47,12 +47,12 @@ export default class Onboarding extends Component {
    * Method: componentDidMount()
    * Author: Elton C. Rego
    *
-   * Purpose: When a component specified sucessfully is rendered, 
+   * Purpose: When a component specified sucessfully is rendered,
    *   it runs the action
    */
   componentDidMount() {
     setTimeout(() => {
-      this.scrollView.scrollTo({x: -16}) 
+      this.scrollView.scrollTo({x: -16})
     }, 1) // scroll view position fix
   }
 
@@ -83,11 +83,11 @@ export default class Onboarding extends Component {
 
   /*
    * Method: render
-   * Author: Elton C. Rego 
+   * Author: Elton C. Rego
    *
    * Purpose: Renders the onboarding page.
    *  The onboarding page has nothing right now.
-   * 
+   *
    */
   render() {
 
@@ -102,7 +102,7 @@ export default class Onboarding extends Component {
         <StatusBar
           barStyle="light-content"
         />
-        <ScrollView 
+        <ScrollView
           ref={(scrollView) => { this.scrollView = scrollView; }}
           style={styles.scroll}
           horizontal={true}
@@ -120,9 +120,9 @@ export default class Onboarding extends Component {
           {/* Card 1 */}
           <View style={styles.card}>
             <Text style={styles.card_title}>{"It's Me!"}</Text>
-            <Image 
-              style={styles.revi} 
-              source={require('../../../assets/img/car-good.png')} 
+            <Image
+              style={styles.revi}
+              source={require('../../../assets/img/car-good.png')}
             />
             <Text style={styles.card_text}>{"I'm your car!"}</Text>
           </View>
@@ -130,9 +130,9 @@ export default class Onboarding extends Component {
           {/* Card 2 */}
           <View style={styles.card}>
             <Text style={styles.card_title}>{"My name is.."}</Text>
-            <Image 
-              style={styles.revi} 
-              source={require('../../../assets/img/car-good.png')} 
+            <Image
+              style={styles.revi}
+              source={require('../../../assets/img/car-good.png')}
             />
             <TextInput
               style={styles.card_text_input}
@@ -142,12 +142,12 @@ export default class Onboarding extends Component {
             />
           </View>
 
-          {/* Card 1 */}
+          {/* Card 3 */}
           <View style={styles.card}>
             <Text style={styles.card_title}>{this.state.text}</Text>
-            <Image 
+            <Image
               style={styles.revi_super} 
-              source={require('../../../assets/img/car-super-good.png')} 
+              source={require('../../../assets/img/car-super-good.png')}
             />
             <Text style={styles.card_text}>{"I love it!"}</Text>
           </View>
@@ -155,8 +155,8 @@ export default class Onboarding extends Component {
         </View>
 
       {/* Go Back Button : DELETE BEFORE PRODUCTION */}
-        <TouchableOpacity 
-          activeOpacity={0.8} 
+        <TouchableOpacity
+          activeOpacity={0.8}
           onPress={
             () => this.goToLoginPage()
           }>
