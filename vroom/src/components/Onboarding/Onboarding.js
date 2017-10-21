@@ -9,7 +9,6 @@ import {
   Button,
   Image,
   StyleSheet,
-  TouchableOpacity,
   StatusBar,
   ScrollView,
   Dimensions,
@@ -153,17 +152,6 @@ export default class Onboarding extends Component {
           </View>
         </ScrollView>
         </View>
-
-      {/* Go Back Button : DELETE BEFORE PRODUCTION */}
-        <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={
-            () => this.goToLoginPage()
-          }>
-          <Text style={styles.button_style}>
-            {"Go Back to Login"}
-          </Text>
-        </TouchableOpacity>
       </View>
     );
   }
@@ -288,18 +276,5 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
   },
-
-   /*
-   * Style: Button Style
-   * Author: Elton C. Rego
-   * Purpose: This styles the button to go back to the
-   *   Login Page
-   */
-  button_style: {
-    color: GLOBAL.COLOR.GREEN,
-    fontFamily: 'Nunito',
-    textAlign: 'center',
-    fontSize: 20,
-  }
 
 });
