@@ -107,7 +107,7 @@ export default class Onboarding extends Component {
           style={styles.scroll}
           horizontal={true}
           decelerationRate={0}
-          snapToInterval={width-32}
+          snapToInterval={312+32}
           snapToAlignment={"center"}
           showsHorizontalScrollIndicator={false}
           contentInset={{
@@ -215,9 +215,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#ffffff',
-    width: 311,
+    width: 312,
     height: 344,
-    borderRadius:20,
+    borderRadius: 20,
     alignItems: 'center',
     overflow: 'hidden',
     margin: 16,
