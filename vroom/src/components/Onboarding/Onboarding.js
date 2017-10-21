@@ -19,8 +19,6 @@ import Login from '../Login/Login';
 
 GLOBAL = require('../../Globals');
 
-const { width } = Dimensions.get('window');
-
 /*
  * Class: Onboarding
  * Author: Elton C.  Rego
@@ -28,10 +26,8 @@ const { width } = Dimensions.get('window');
  * Purpose: Walks the user through naming their car and then
  *   takes in the make, model, and year of their vehicle.
  *
- * TODO: Impliment a card object
  * TODO: Create a Revi object
  * TODO: Animate a Revi object
- * TODO: Take in name and replace name in next card
  * TODO: Take in make, model, and year and end this screen
  */
 export default class Onboarding extends Component {
@@ -47,10 +43,26 @@ export default class Onboarding extends Component {
     header: null,
   };
 
+   /*
+   * Method: componentDidMount()
+   * Author: Elton C. Rego
+   *
+   * Purpose: When a component specified sucessfully is rendered, 
+   *   it runs the action
+   */
   componentDidMount() {
-    setTimeout(() => {this.scrollView.scrollTo({x: -16}) }, 1) // scroll view position fix
+    setTimeout(() => {
+      this.scrollView.scrollTo({x: -16}) 
+    }, 1) // scroll view position fix
   }
 
+   /*
+   * Method: constructor(props)
+   * Author: Elton C. Rego
+   *
+   * Purpose: Sets the state text for the card naming
+   * props: the properties passed in from the super class (index.js)
+   */
   constructor(props) {
     super(props);
     this.state = {text: ''};
@@ -78,8 +90,14 @@ export default class Onboarding extends Component {
    * 
    */
   render() {
+
+
+    // Grabs the width of the device screen and sets it to 'width'
+    const { width } = Dimensions.get('window');
+
     return (
       <View style={styles.container}>
+
         <View style={styles.cards_container}>
         <StatusBar
           barStyle="light-content"
@@ -168,13 +186,13 @@ const styles = StyleSheet.create({
     backgroundColor: GLOBAL.COLOR.DARKGRAY,
   },
 
-
   /*
    * Style: scroll
    * Author: Elton C. Rego
    * Purpose: This styles the scroll
    */
   scroll: { },
+
   /*
    * Style: scroll
    * Author: Elton C. Rego
@@ -217,6 +235,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     marginTop: 32,
   },
+
    /*
    * Style: Card Text
    * Author: Elton C. Rego
@@ -229,6 +248,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 32,
   },
+
   /*
    * Style: Card Text Input
    * Author: Elton C. Rego
@@ -245,6 +265,7 @@ const styles = StyleSheet.create({
     width: '80%',
     borderColor: GLOBAL.COLOR.GREEN,
   },
+
    /*
    * Style: Revi
    * Author: Elton C. Rego
@@ -255,6 +276,7 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
   },
+
   /*
    * Style: Revi Super
    * Author: Elton C. Rego
@@ -265,6 +287,7 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
   },
+
    /*
    * Style: Button Style
    * Author: Elton C. Rego
