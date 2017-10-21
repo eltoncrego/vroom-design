@@ -88,6 +88,17 @@ class FadeInView extends Component {
 export default class Login extends Component {
 
   /*
+   * Static: navigationOptions
+   * Author: Elton C. Rego
+   *
+   * Purpose: To set the navigation bar options for this page
+   */
+  static navigationOptions = {
+    title: 'Login',
+    header: null,
+  };
+
+  /*
    * Method: goToOnboarding()
    * Author: Elton C. Rego
    *
@@ -98,12 +109,9 @@ export default class Login extends Component {
    * TODO: When login is implimented, replace with login
    *   with Google screen.
    */
-  goToOnboarding() {
-    this.props.navigator.push({
-      component: Onboarding,
-      title: 'Onboarding',
-      navigationBarHidden: true
-    });
+  goToOnboardingPage() {
+    const { navigate } = this.props.navigation;
+    navigate('Onboarding')
   }
 
   /*
@@ -125,7 +133,7 @@ export default class Login extends Component {
         <View style={styles.login}>
         <TouchableOpacity activeOpacity={0.8} 
     	    onPress={
-    		    () => this.goToOnboarding()
+    		    () => this.goToOnboardingPage()
     	    }>
           <FadeImage
             source={require('../../../assets/img/google_signin.png')}

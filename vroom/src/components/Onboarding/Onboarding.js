@@ -10,7 +10,6 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
-  ScrollView,
 } from 'react-native';
 import Login from '../Login/Login';
 
@@ -32,7 +31,18 @@ GLOBAL = require('../../Globals');
 export default class Onboarding extends Component {
 
   /*
-   * Method: goToPage()
+   * Static: navigationOptions
+   * Author: Elton C. Rego
+   *
+   * Purpose: To set the navigation bar options for this page
+   */
+  static navigationOptions = {
+    title: 'Welcome',
+    header: null,
+  };
+
+  /*
+   * Method: goToLoginPage()
    * Author: Elton C. Rego
    *
    * Purpose: On invocation, will push the LoginPage
@@ -40,11 +50,8 @@ export default class Onboarding extends Component {
    *   (Loads the screen.)
    */
   goToLoginPage() {
-    this.props.navigator.push({
-      component: Login,
-      title: 'Login to Vroom',
-      navigationBarHidden: true
-    });
+    const { navigate } = this.props.navigation;
+    navigate('Login')
   }
 
   /*
@@ -59,13 +66,13 @@ export default class Onboarding extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.card}>
-  	      <Text style={styles.card_title}>{"It's Me!"}</Text>
-  	      <Image 
-    	      style={styles.revi} 
-    	      source={require('../../../assets/img/car-good.png')} 
-  	      />
-  	      <Text style={styles.card_text}>{"I'm your car!"}</Text>
-	      </View>
+          <Text style={styles.card_title}>{"It's Me!"}</Text>
+          <Image 
+            style={styles.revi} 
+            source={require('../../../assets/img/car-good.png')} 
+          />
+          <Text style={styles.card_text}>{"I'm your car!"}</Text>
+        </View>
         <TouchableOpacity 
           activeOpacity={0.8} 
           onPress={
@@ -102,11 +109,11 @@ const styles = StyleSheet.create({
    * Author: Elton C. Rego
    * Purpose: This styles the entire background of the scroll
    */
-  // scroll: {
-  //   alignContent: 'center',
-  //   width: '100%',
-  //   paddingVertical: 20,
-  // },
+  scroll: {
+    alignContent: 'center',
+    flex: 1,
+    paddingVertical: 20,
+  },
    /*
    * Style: Card
    * Author: Elton C. Rego

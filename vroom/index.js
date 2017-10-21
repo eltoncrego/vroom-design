@@ -1,9 +1,25 @@
-import { AppRegistry, NavigatorIOS, StyleSheet, } from 'react-native';
 import React, { Component } from 'react';
 import Login from './src/components/Login/Login';
 import Onboarding from './src/components/Onboarding/Onboarding';
+import Revi from './src/Revi'
+import { 
+  AppRegistry, 
+  NavigatorIOS, 
+  StyleSheet, 
+} from 'react-native';
+import {
+  StackNavigator,
+} from 'react-navigation';
 
 GLOBAL = require('./src/Globals');
+
+const vroom = StackNavigator({
+  // DEBUG: Uncomment Following Line to Test Revi
+  // Revi: {screen: Revi},
+  Login: {screen: Login},
+  Onboarding: {screen: Onboarding},
+});
+
 
 /*
  * Class: vroom
@@ -17,7 +33,7 @@ GLOBAL = require('./src/Globals');
  * TODO: Imliment legitimate login page.
  *
  */
-export default class vroom extends Component<{}> {
+// export default class vroom extends Component<{}> {
 
   /*
    * Method: render
@@ -31,19 +47,19 @@ export default class vroom extends Component<{}> {
    * TODO: Verify if user is already logged in before
    *   determining which page to render.
    */
-  render() {
-    return (
-        <NavigatorIOS
-          style = {styles.container}
-          initialRoute={{
-            title: "Login Page",
-            navigationBarHidden: true,
-            component: Login
-        }}/>
+//   render() {
+//     return (
+//         <NavigatorIOS
+//           style = {styles.container}
+//           initialRoute={{
+//             title: "Login Page",
+//             navigationBarHidden: true,
+//             component: Login
+//         }}/>
 
-    );
-  }
-}
+//     );
+//   }
+// }
 
 /*
  * StyleSheet: styles
@@ -52,10 +68,10 @@ export default class vroom extends Component<{}> {
  * Purpose: Creates the styling rules for the overall 
  *   application.
  */
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  }
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//   }
+// });
 
 AppRegistry.registerComponent('vroom', () => vroom);
