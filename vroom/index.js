@@ -13,65 +13,20 @@ import {
 
 GLOBAL = require('./src/Globals');
 
+/*
+ * Constant: Vroom
+ * Author: Elton C. Rego
+ * 
+ * Purpose: Creates a stack of the possible screens
+ *   that can be used in the application
+ */
 const vroom = StackNavigator({
   // DEBUG: Uncomment Following Line to Test Revi
   // Revi: {screen: Revi},
+  
   Login: {screen: Login},
   Onboarding: {screen: Onboarding},
 });
 
-
-/*
- * Class: vroom
- * Author: Connick Shields & Elton C. Rego
- *
- * Purpose: Renders the default page of the application.
- *   In this case, the default page is the Login page.
- *
- * TODO: Add logic to determine if a user is already
- *   logged in.
- * TODO: Imliment legitimate login page.
- *
- */
-// export default class vroom extends Component<{}> {
-
-  /*
-   * Method: render
-   * Author: Connick Shields & Elton C. Rego
-   *
-   * Purpose: Renders the navigator object.
-   *   The navigator object will run the Login
-   *   component and allows us to navigate between
-   *   pages in the application.
-   *
-   * TODO: Verify if user is already logged in before
-   *   determining which page to render.
-   */
-//   render() {
-//     return (
-//         <NavigatorIOS
-//           style = {styles.container}
-//           initialRoute={{
-//             title: "Login Page",
-//             navigationBarHidden: true,
-//             component: Login
-//         }}/>
-
-//     );
-//   }
-// }
-
-/*
- * StyleSheet: styles
- * Author: Connick Shields
- * 
- * Purpose: Creates the styling rules for the overall 
- *   application.
- */
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//   }
-// });
-
+// Pushes the Navigation Stack onto the View
 AppRegistry.registerComponent('vroom', () => vroom);

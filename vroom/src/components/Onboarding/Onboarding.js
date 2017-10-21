@@ -11,10 +11,15 @@ import {
   StyleSheet,
   TouchableOpacity,
   StatusBar,
+  ScrollView,
+  Dimensions,
+  TextInput,
 } from 'react-native';
 import Login from '../Login/Login';
 
 GLOBAL = require('../../Globals');
+
+const { width } = Dimensions.get('window');
 
 /*
  * Class: Onboarding
@@ -42,6 +47,15 @@ export default class Onboarding extends Component {
     header: null,
   };
 
+  componentDidMount() {
+    setTimeout(() => {this.scrollView.scrollTo({x: -16}) }, 1) // scroll view position fix
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {text: ''};
+  }
+
   /*
    * Method: goToLoginPage()
    * Author: Elton C. Rego
@@ -66,17 +80,62 @@ export default class Onboarding extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.cards_container}>
         <StatusBar
           barStyle="light-content"
         />
-        <View style={styles.card}>
-          <Text style={styles.card_title}>{"It's Me!"}</Text>
-          <Image 
-            style={styles.revi} 
-            source={require('../../../assets/img/car-good.png')} 
-          />
-          <Text style={styles.card_text}>{"I'm your car!"}</Text>
+        <ScrollView 
+          ref={(scrollView) => { this.scrollView = scrollView; }}
+          style={styles.scroll}
+          horizontal={true}
+          decelerationRate={0}
+          snapToInterval={width-32}
+          snapToAlignment={"center"}
+          showsHorizontalScrollIndicator={false}
+          contentInset={{
+            top: 0,
+            left: 32,
+            bottom: 0,
+            right: 32,
+          }}
+        >
+          {/* Card 1 */}
+          <View style={styles.card}>
+            <Text style={styles.card_title}>{"It's Me!"}</Text>
+            <Image 
+              style={styles.revi} 
+              source={require('../../../assets/img/car-good.png')} 
+            />
+            <Text style={styles.card_text}>{"I'm your car!"}</Text>
+          </View>
+
+          {/* Card 2 */}
+          <View style={styles.card}>
+            <Text style={styles.card_title}>{"My name is.."}</Text>
+            <Image 
+              style={styles.revi} 
+              source={require('../../../assets/img/car-good.png')} 
+            />
+            <TextInput
+              style={styles.card_text_input}
+              placeholder="Type in my name!"
+              onChangeText={(text) => this.setState({text})}
+            />
+          </View>
+
+          {/* Card 1 */}
+          <View style={styles.card}>
+            <Text style={styles.card_title}>{this.state.text}</Text>
+            <Image 
+              style={styles.revi_super} 
+              source={require('../../../assets/img/car-super-good.png')} 
+            />
+            <Text style={styles.card_text}>{"I love it!"}</Text>
+          </View>
+        </ScrollView>
         </View>
+
+      {/* Go Back Button : DELETE BEFORE PRODUCTION */}
         <TouchableOpacity 
           activeOpacity={0.8} 
           onPress={
@@ -108,30 +167,43 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: GLOBAL.COLOR.DARKGRAY,
   },
+
+
   /*
    * Style: scroll
    * Author: Elton C. Rego
-   * Purpose: This styles the entire background of the scroll
+   * Purpose: This styles the scroll
    */
-  scroll: {
-    alignContent: 'center',
-    flex: 1,
-    paddingVertical: 20,
+  scroll: { },
+  /*
+   * Style: scroll
+   * Author: Elton C. Rego
+   * Purpose: This styles the scroll
+   */
+  cards_container: {
+    height: 350,
+    width: '100%',
+    alignSelf: 'center',
+    marginBottom: 32,
   },
+
    /*
    * Style: Card
    * Author: Elton C. Rego
    * Purpose: This styles the card view within this page
    */
   card: {
-    height: 344,
-    width: '80%',
-    backgroundColor: '#ffffff',
-    borderRadius:20,
+    alignSelf: 'center',
     justifyContent: 'space-between',
+    backgroundColor: '#ffffff',
+    width: 311,
+    height: 344,
+    borderRadius:20,
     alignItems: 'center',
+    overflow: 'hidden',
     margin: 16,
   },
+
    /*
    * Style: Card Title
    * Author: Elton C. Rego
@@ -157,12 +229,38 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 32,
   },
+  /*
+   * Style: Card Text Input
+   * Author: Elton C. Rego
+   * Purpose: This styles the card descriptions
+   */
+  card_text_input: {
+    fontFamily: 'Nunito',
+    textAlign: 'center',
+    justifyContent: 'center',
+    fontSize: 20,
+    marginBottom: 32,
+    borderBottomWidth: 2,
+    paddingBottom: 2,
+    width: '80%',
+    borderColor: GLOBAL.COLOR.GREEN,
+  },
    /*
    * Style: Revi
    * Author: Elton C. Rego
    * Purpose: This styles the Revis on each card
    */
   revi: {
+    resizeMode: 'contain',
+    height: 120,
+    width: 120,
+  },
+  /*
+   * Style: Revi Super
+   * Author: Elton C. Rego
+   * Purpose: This styles the Revis on each card
+   */
+  revi_super: {
     resizeMode: 'contain',
     height: 120,
     width: 120,
@@ -178,7 +276,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Nunito',
     textAlign: 'center',
     fontSize: 20,
-    marginTop: 32,
   }
 
 });

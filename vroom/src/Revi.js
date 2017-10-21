@@ -19,6 +19,12 @@ export default class Revi extends Component{
     is_happy: false,
   };
 
+  /*
+   * Method: makeNormal
+   * Author: Elton C. Rego
+   * 
+   * Purpose: Make Revi Super Happy
+   */
   makeSuperHappy() {
     LayoutAnimation.spring();
     this.setState({
@@ -27,6 +33,12 @@ export default class Revi extends Component{
     })
   }
 
+  /*
+   * Method: makeNormal
+   * Author: Elton C. Rego
+   * 
+   * Purpose: Make Revi Normal
+   */
   makeNormal() {
     LayoutAnimation.spring();
     this.setState({
