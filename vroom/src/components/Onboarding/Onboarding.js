@@ -138,6 +138,7 @@ export default class Onboarding extends Component {
               style={styles.card_text_input}
               placeholder="Type in my name!"
               onChangeText={(text) => this.setState({text})}
+              underlineColorAndroid={'#ffffff'}
             />
           </View>
 
