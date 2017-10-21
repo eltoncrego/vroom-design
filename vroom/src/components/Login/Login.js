@@ -9,6 +9,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Animated,
+  StatusBar,
 } from 'react-native';
 import FadeImage from 'react-native-fade-image';
 import Onboarding from '../Onboarding/Onboarding';
@@ -126,6 +127,9 @@ export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar
+         barStyle="light-content"
+       />
         <FadeInView style={styles.header}>
           <Text style={styles.vroom}>vroom</Text>
           <Text style={styles.tag_line}>The app that keeps your car happy!</Text>

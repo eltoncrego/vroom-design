@@ -10,6 +10,7 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
+  StatusBar,
 } from 'react-native';
 import Login from '../Login/Login';
 
@@ -65,6 +66,9 @@ export default class Onboarding extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar
+          barStyle="light-content"
+        />
         <View style={styles.card}>
           <Text style={styles.card_title}>{"It's Me!"}</Text>
           <Image 

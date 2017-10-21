@@ -5,7 +5,7 @@ import Revi from './src/Revi'
 import { 
   AppRegistry, 
   NavigatorIOS, 
-  StyleSheet, 
+  StyleSheet,
 } from 'react-native';
 import {
   StackNavigator,
