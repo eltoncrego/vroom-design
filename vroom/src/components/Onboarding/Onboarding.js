@@ -14,6 +14,7 @@ import {
   Dimensions,
   TextInput,
   KeyboardAvoidingView,
+  TouchableOpacity
 } from 'react-native';
 import Login from '../Login/Login';
 
@@ -83,6 +84,10 @@ export default class Onboarding extends Component {
     this.setState({show_last_card: true});
   }
 
+  goToScrollView() {
+    this.scrollView.scrollTo({x: 656+16, y: 0, animated: true});
+    this.setState({show_last_card: true});
+  }
   /*
    * Method: render
    * Author: Elton C. Rego
@@ -160,10 +165,16 @@ export default class Onboarding extends Component {
 
           {/* Card 3: Hide if no name*/}
           {last_card}
-
-        </ScrollView>
+        </ScrollView> 
         </View>
-
+        <TouchableOpacity 
+          style={styles.buttonContainer}
+          activeOpacity={0.8} 
+          onPress={
+            () => this.goToScrollView()
+        }>
+          <Text style={styles.buttonText}>Next</Text>
+        </TouchableOpacity>
       </KeyboardAvoidingView>
     );
   }
@@ -174,6 +185,32 @@ export default class Onboarding extends Component {
  * Author: Elton C. Rego
  */
 const styles = StyleSheet.create({
+
+  /*
+   * Style: Button
+   * Author: Tianyi Zhang
+   * Purpose: This styles the Next button
+   */
+  
+  buttonContainer: {
+    backgroundColor: '#2980b9',
+    height: 45,
+    width: 100,
+    padding: 10,
+    margin: 5,
+    alignSelf: 'center',
+    borderRadius: 10,
+    position: 'absolute',
+    bottom: '15%',
+    right:'35%'
+  },
+  
+  buttonText: {
+    textAlign: 'center',
+    color:'#FFFFFF',
+    fontWeight:'600',
+    fontSize: 20,
+  },
 
   /*
    * Style: Container
