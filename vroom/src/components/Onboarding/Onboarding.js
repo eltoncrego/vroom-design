@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
    */
 
   buttonContainer: {
-    backgroundColor: '#2980b9',
+    backgroundColor: GLOBAL.COLOR.BLUE,
     height: 45,
     width: 100,
     padding: 10,
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
 
   buttonText: {
     textAlign: 'center',
-    color:'#FFFFFF',
+    color: GLOBAL.COLOR.WHITE,
     fontWeight:'600',
     fontSize: 20,
   },
