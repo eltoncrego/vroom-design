@@ -1,7 +1,7 @@
 module.exports = {
   COLOR: {
-    BLUE: '#C2DFE3',
-    DARKBLUE: '#E0FBFC',
+    BLUE: '#E0FBFC',
+    DARKBLUE: '#C2DFE3',
     GRAY: '#4F6D7A',
     DARKGRAY: '#253237',
     RED: '#FF3C38',

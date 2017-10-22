@@ -21,7 +21,7 @@ GLOBAL = require('./src/Globals');
  */
 const vroom = StackNavigator({
   // DEBUG: Uncomment Following Line to Test Revi
-  // Revi: {screen: Revi},
+  Revi: {screen: Revi},
 
   Login: {screen: Login},
   Onboarding: {screen: Onboarding},
