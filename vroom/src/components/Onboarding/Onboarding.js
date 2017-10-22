@@ -13,6 +13,7 @@ import {
   ScrollView,
   Dimensions,
   TextInput,
+  TouchableOpacity
 } from 'react-native';
 import Login from '../Login/Login';
 
@@ -32,15 +33,59 @@ GLOBAL = require('../../Globals');
 export default class Onboarding extends Component {
 
   /*
-   * Static: navigationOptions
+   * Method: goToLoginPage()
    * Author: Elton C. Rego
+   *
+   * Purpose: On invocation, will push the LoginPage
+   *   component onto the view stack.
+   *   (Loads the screen.)
+   */
+  goToLoginPage() {
+    const { navigate } = this.props.navigation;
+    navigate('Login');
+  }
+
+  /*
+   * Static: navigationOptions
+   * Author: Elton C. Rego, Alec Felt
    *
    * Purpose: To set the navigation bar options for this page
    */
-  static navigationOptions = {
-    title: 'Welcome',
-    header: null,
-  };
+  static navigationOptions = ({navigation, screenProps}) => ({
+
+      /*
+       * navigationOptions: title
+       * Author: Alec Felt
+       *
+       * Purpose: Add logo to navbar
+       */
+      title: <Image style={styles.icon_header} source={require('../../../assets/img/ios.png')}/>,
+
+      /*
+       * navigationOptions: headerStyle, headerRight
+       * Author: Elton C. Rego, Alec Felt
+       *
+       * Purpose: Add color/font to navbar
+       *          Add button on headerRight for navigation
+       *          options in the future
+       *
+       * TODO: style Back button on the navbar
+       * TODO: add navigation functionaility to Next button
+       * TODO: get Next/Back button styled with Nunito fontFamily
+       *       (for some reason I couldn't figure out how to)
+       */
+      headerStyle: {
+        fontFamily: 'Nunito',
+        backgroundColor: GLOBAL.COLOR.DARKGRAY
+      },
+      headerRight: (
+        // example navigation:
+        //  onPress={() => {navigation.navigate('Login');}}
+        <TouchableOpacity onPress={() => { ; }}>
+          <Text style={styles.button_header}>Next</Text>
+        </TouchableOpacity>
+      )
+  });
 
    /*
    * Method: componentDidMount()
@@ -65,19 +110,6 @@ export default class Onboarding extends Component {
   constructor(props) {
     super(props);
     this.state = {text: ''};
-  }
-
-  /*
-   * Method: goToLoginPage()
-   * Author: Elton C. Rego
-   *
-   * Purpose: On invocation, will push the LoginPage
-   *   component onto the view stack.
-   *   (Loads the screen.)
-   */
-  goToLoginPage() {
-    const { navigate } = this.props.navigation;
-    navigate('Login')
   }
 
   /*
@@ -108,7 +140,7 @@ export default class Onboarding extends Component {
           decelerationRate={0}
           snapToInterval={312+32}
           snapToAlignment={"center"}
-          showsHorizontalScrollIndicator={false}
+          showsHorizontalScrollIndicator={true}
           contentInset={{
             top: 0,
             left: 32,
@@ -145,7 +177,7 @@ export default class Onboarding extends Component {
           <View style={styles.card}>
             <Text style={styles.card_title}>{this.state.text}</Text>
             <Image
-              style={styles.revi_super} 
+              style={styles.revi_super}
               source={require('../../../assets/img/car-super-good.png')}
             />
             <Text style={styles.card_text}>{"I love it!"}</Text>
@@ -276,5 +308,31 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
   },
+
+  /*
+   * Style: Icon Header
+   * Author: Alec Felt
+   * Purpose: Add style to the navbar icon
+   *          to stay consistent with project theme
+   */
+   icon_header: {
+     height: 35,
+     width: 35,
+     marginTop: 7
+   },
+
+   /*
+    * Style: Button Header
+    * Author: Alec Felt
+    * Purpose: Add style to the navbar button
+    *          to stay consistent with project theme
+    */
+    button_header: {
+      fontSize: 16,
+      fontFamily: 'Nunito',
+      color: GLOBAL.COLOR.GREEN,
+      marginTop: 5,
+      marginRight: 4
+    }
 
 });
