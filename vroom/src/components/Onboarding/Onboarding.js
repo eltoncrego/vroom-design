@@ -65,20 +65,22 @@ export default class Onboarding extends Component {
    */
   constructor(props) {
     super(props);
-    this.state = {text: 'My Car'};
+    this.state = {
+      text: 'My Car',
+      show_last_card: false,
+    };
   }
 
   /*
-   * Method: goToLoginPage()
+   * Method: nameEntered()
    * Author: Elton C. Rego
    *
-   * Purpose: On invocation, will push the LoginPage
-   *   component onto the view stack.
-   *   (Loads the screen.)
+   * Purpose: On invocation, show the last card
+   *   and scroll to it
    */
-  goToLoginPage() {
-    const { navigate } = this.props.navigation;
-    navigate('Login')
+  nameEntered() {
+    this.scrollView.scrollTo({x: 656+16, y: 0, animated: true});
+    this.setState({show_last_card: true});
   }
 
   /*
@@ -91,6 +93,16 @@ export default class Onboarding extends Component {
    */
   render() {
 
+    var last_card = this.state.show_last_card ? 
+      <View style={styles.card}>
+        <Text style={styles.card_title}>{this.state.text}</Text>
+          <Image
+            style={styles.revi_super} 
+            source={require('../../../assets/img/car-super-good.png')}
+          />
+        <Text style={styles.card_text}>{"I love it!"}</Text>
+      </View> 
+      : null;
 
     // Grabs the width of the device screen and sets it to 'width'
     const { width } = Dimensions.get('window');
@@ -142,23 +154,16 @@ export default class Onboarding extends Component {
               placeholder="Type in my name!"
               onChangeText={(text) => this.setState({text})}
               underlineColorAndroid={'#ffffff'}
-              onSubmitEditing={
-                () => this.scrollView.scrollTo({x: 656+16, y: 0, animated: true})
-              }
+              onSubmitEditing={ () => this.nameEntered()}
             />
           </View>
 
-          {/* Card 3 */}
-          <View style={styles.card}>
-            <Text style={styles.card_title}>{this.state.text}</Text>
-            <Image
-              style={styles.revi_super} 
-              source={require('../../../assets/img/car-super-good.png')}
-            />
-            <Text style={styles.card_text}>{"I love it!"}</Text>
-          </View>
+          {/* Card 3: Hide if no name*/}
+          {last_card}
+
         </ScrollView>
         </View>
+
       </KeyboardAvoidingView>
     );
   }
@@ -283,5 +288,8 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
   },
+
+  inactive: {
+  }
 
 });
