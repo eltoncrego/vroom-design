@@ -207,8 +207,12 @@ const styles = StyleSheet.create({
    */
 
   buttonContainer: {
+<<<<<<< HEAD
     borderColor: GLOBAL.COLOR.GREEN,
     borderWidth: 4,
+=======
+    backgroundColor: GLOBAL.COLOR.BLUE,
+>>>>>>> cccb4c7d3664190f690b68ed4040777964462282
     height: 45,
     width: 100,
     alignSelf: 'center',
@@ -220,9 +224,13 @@ const styles = StyleSheet.create({
 
   buttonText: {
     textAlign: 'center',
+<<<<<<< HEAD
     fontFamily: 'Nunito',
     color: GLOBAL.COLOR.GREEN,
     backgroundColor: 'transparent',
+=======
+    color: GLOBAL.COLOR.WHITE,
+>>>>>>> cccb4c7d3664190f690b68ed4040777964462282
     fontWeight:'600',
     fontSize: 20,
     margin: 10,
