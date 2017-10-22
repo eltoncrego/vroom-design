@@ -48,45 +48,14 @@ export default class Onboarding extends Component {
 
   /*
    * Static: navigationOptions
-   * Author: Elton C. Rego, Alec Felt
+   * Author: Elton C. Rego
    *
    * Purpose: To set the navigation bar options for this page
    */
-  static navigationOptions = ({navigation, screenProps}) => ({
-
-      /*
-       * navigationOptions: title
-       * Author: Alec Felt
-       *
-       * Purpose: Add logo to navbar
-       */
-      title: <Image style={styles.icon_header} source={require('../../../assets/img/ios.png')}/>,
-
-      /*
-       * navigationOptions: headerStyle, headerRight
-       * Author: Elton C. Rego, Alec Felt
-       *
-       * Purpose: Add color/font to navbar
-       *          Add button on headerRight for navigation
-       *          options in the future
-       *
-       * TODO: style Back button on the navbar
-       * TODO: add navigation functionaility to Next button
-       * TODO: get Next/Back button styled with Nunito fontFamily
-       *       (for some reason I couldn't figure out how to)
-       */
-      headerStyle: {
-        fontFamily: 'Nunito',
-        backgroundColor: GLOBAL.COLOR.DARKGRAY
-      },
-      headerRight: (
-        // example navigation:
-        //  onPress={() => {navigation.navigate('Login');}}
-        <TouchableOpacity onPress={() => { ; }}>
-          <Text style={styles.button_header}>Next</Text>
-        </TouchableOpacity>
-      )
-  });
+  static navigationOptions = {
+    title: 'Welcome',
+    header: null,
+  };
 
    /*
    * Method: componentDidMount()
@@ -124,14 +93,15 @@ export default class Onboarding extends Component {
    *   and scroll to it
    */
   nameEntered() {
-    this.scrollView.scrollTo({x: 656+16, y: 0, animated: true});
+    this.scrollView.scrollToEnd({animated: true});
     this.setState({show_last_card: true});
   }
 
   goToScrollView() {
-    this.scrollView.scrollTo({x: 656+16, y: 0, animated: true});
-    this.setState({show_last_card: true});
+    this.scrollView.scrollTo({x: 328+8, y: 0, animated: true});
   }
+
+
   /*
    * Method: render
    * Author: Elton C. Rego
@@ -173,7 +143,7 @@ export default class Onboarding extends Component {
           decelerationRate={0}
           snapToInterval={312+32}
           snapToAlignment={"center"}
-          showsHorizontalScrollIndicator={true}
+          showsHorizontalScrollIndicator={false}
           contentInset={{
             top: 0,
             left: 16,
@@ -370,32 +340,5 @@ const styles = StyleSheet.create({
     width: 120,
   },
 
-  /*
-   * Style: Icon Header
-   * Author: Alec Felt
-   * Purpose: Add style to the navbar icon
-   *          to stay consistent with project theme
-   */
-   icon_header: {
-     height: 35,
-     width: 35,
-     marginTop: 7
-   },
-
-   /*
-    * Style: Button Header
-    * Author: Alec Felt
-    * Purpose: Add style to the navbar button
-    *          to stay consistent with project theme
-    */
-    button_header: {
-      fontSize: 16,
-      fontFamily: 'Nunito',
-      color: GLOBAL.COLOR.GREEN,
-      marginTop: 5,
-      marginRight: 4
-    },
-
-    inactive: {}
-
+  inactive: {},
 });

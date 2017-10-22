@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Login from './src/components/Login/Login';
 import Onboarding from './src/components/Onboarding/Onboarding';
+import Dashboard from './src/components/Dashboard/Dashboard';
 import Revi from './src/Revi'
 import {
   AppRegistry,
@@ -21,10 +22,11 @@ GLOBAL = require('./src/Globals');
  */
 const vroom = StackNavigator({
   // DEBUG: Uncomment Following Line to Test Revi
-  // Revi: {screen: Revi},
+  //Revi: {screen: Revi},
 
   Login: {screen: Login},
   Onboarding: {screen: Onboarding},
+  Dashboard: {screen: Dashboard},
 });
 
 // Pushes the Navigation Stack onto the View

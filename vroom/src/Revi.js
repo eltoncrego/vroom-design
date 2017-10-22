@@ -12,12 +12,19 @@ GLOBAL = require('./Globals');
 
 export default class Revi extends Component{
 
-  state = {
-    body_src: require("../assets/img/car-body.png"),
-    face_src: require("../assets/img/car-face-normal.png"),
-    face_pos: -208,
-    is_happy: false,
-  };
+   /*
+   * Method: constructor(props)
+   * Author: Elton C. Rego
+   *
+   * Purpose: Sets the state text for the card naming
+   * props: the properties passed in from the super class (index.js)
+   */
+  constructor(props) {
+    super(props);
+    this.state = {
+      is_exlaiming: false,
+    };
+  }
 
   /*
    * Method: render
@@ -27,13 +34,18 @@ export default class Revi extends Component{
    * 
    */
   render() {
+
+    var exclaim = this.state.is_exlaiming ? 
+      <View style={styles.exclaims}>
+        <View style={styles.left_exclaim}></View>
+        <View style={styles.mid_exclaim}></View>
+        <View style={styles.right_exclaim}></View>
+      </View>
+      : null;
+
     return (
       <View style={styles.revi}>
-        <View style={styles.exclaims}>
-          <View style={styles.left_exclaim}></View>
-          <View style={styles.mid_exclaim}></View>
-          <View style={styles.right_exclaim}></View>
-        </View>
+        {exclaim}
         <View style={styles.torso}>
           <View style={styles.glass}>
             <View style={styles.glass_inside}>
@@ -234,6 +246,5 @@ const styles = StyleSheet.create({
     transform:[{rotate: '45 deg'}],
     marginTop: 40,
   },
-
 
 });
