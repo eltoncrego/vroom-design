@@ -28,7 +28,12 @@ export default class Revi extends Component{
    */
   render() {
     return (
-      <View>
+      <View style={styles.revi}>
+        <View style={styles.exclaims}>
+          <View style={styles.left_exclaim}></View>
+          <View style={styles.mid_exclaim}></View>
+          <View style={styles.right_exclaim}></View>
+        </View>
         <View style={styles.torso}>
           <View style={styles.glass}>
             <View style={styles.glass_inside}>
@@ -69,6 +74,7 @@ const styles = StyleSheet.create({
    * Purpose: This styles the revi on each card
    */
   revi: {
+    marginTop: 100,
   },
   /*
    * Style: Glass
@@ -196,6 +202,37 @@ const styles = StyleSheet.create({
    */
   torso: {
     zIndex: 3
+  },
+
+  exclaims:{
+    alignSelf: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    width: 240,
+    marginBottom: 0,
+    zIndex: 2,
+  },
+  left_exclaim: {
+    width: 18,
+    height: 36,
+    backgroundColor: GLOBAL.COLOR.GREEN,
+    borderRadius: 100,
+    transform:[{rotate: '-45 deg'}],
+    marginTop: 40,
+  },
+  mid_exclaim: {
+    width: 18,
+    height: 36,
+    backgroundColor: GLOBAL.COLOR.GREEN,
+    borderRadius: 100,
+  },
+  right_exclaim: {
+    width: 18,
+    height: 36,
+    backgroundColor: GLOBAL.COLOR.GREEN,
+    borderRadius: 100,
+    transform:[{rotate: '45 deg'}],
+    marginTop: 40,
   },
 
 
