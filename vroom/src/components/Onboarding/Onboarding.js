@@ -13,6 +13,7 @@ import {
   ScrollView,
   Dimensions,
   TextInput,
+  KeyboardAvoidingView,
   TouchableOpacity
 } from 'react-native';
 import Login from '../Login/Login';
@@ -109,9 +110,28 @@ export default class Onboarding extends Component {
    */
   constructor(props) {
     super(props);
-    this.state = {text: ''};
+    this.state = {
+      text: 'My Car',
+      show_last_card: false,
+    };
   }
 
+  /*
+   * Method: nameEntered()
+   * Author: Elton C. Rego
+   *
+   * Purpose: On invocation, show the last card
+   *   and scroll to it
+   */
+  nameEntered() {
+    this.scrollView.scrollTo({x: 656+16, y: 0, animated: true});
+    this.setState({show_last_card: true});
+  }
+
+  goToScrollView() {
+    this.scrollView.scrollTo({x: 656+16, y: 0, animated: true});
+    this.setState({show_last_card: true});
+  }
   /*
    * Method: render
    * Author: Elton C. Rego
@@ -122,12 +142,25 @@ export default class Onboarding extends Component {
    */
   render() {
 
+    var last_card = this.state.show_last_card ?
+      <View style={styles.card}>
+        <Text style={styles.card_title}>{this.state.text}</Text>
+          <Image
+            style={styles.revi_super}
+            source={require('../../../assets/img/car-super-good.png')}
+          />
+        <Text style={styles.card_text}>{"I love it!"}</Text>
+      </View>
+      : null;
 
     // Grabs the width of the device screen and sets it to 'width'
     const { width } = Dimensions.get('window');
 
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior="padding"
+      >
 
         <View style={styles.cards_container}>
         <StatusBar
@@ -143,14 +176,14 @@ export default class Onboarding extends Component {
           showsHorizontalScrollIndicator={true}
           contentInset={{
             top: 0,
-            left: 32,
+            left: 16,
             bottom: 0,
-            right: 32,
+            right: 16,
           }}
         >
           {/* Card 1 */}
           <View style={styles.card}>
-            <Text style={styles.card_title}>{"It's Me!"}</Text>
+            <Text style={styles.card_title}>{"Hello!"}</Text>
             <Image
               style={styles.revi}
               source={require('../../../assets/img/car-good.png')}
@@ -170,21 +203,23 @@ export default class Onboarding extends Component {
               placeholder="Type in my name!"
               onChangeText={(text) => this.setState({text})}
               underlineColorAndroid={'#ffffff'}
+              onSubmitEditing={ () => this.nameEntered()}
             />
           </View>
 
-          {/* Card 3 */}
-          <View style={styles.card}>
-            <Text style={styles.card_title}>{this.state.text}</Text>
-            <Image
-              style={styles.revi_super}
-              source={require('../../../assets/img/car-super-good.png')}
-            />
-            <Text style={styles.card_text}>{"I love it!"}</Text>
-          </View>
+          {/* Card 3: Hide if no name*/}
+          {last_card}
         </ScrollView>
         </View>
-      </View>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          activeOpacity={0.8}
+          onPress={
+            () => this.goToScrollView()
+        }>
+          <Text style={styles.buttonText}>Next</Text>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -194,6 +229,32 @@ export default class Onboarding extends Component {
  * Author: Elton C. Rego
  */
 const styles = StyleSheet.create({
+
+  /*
+   * Style: Button
+   * Author: Tianyi Zhang
+   * Purpose: This styles the Next button
+   */
+
+  buttonContainer: {
+    backgroundColor: '#2980b9',
+    height: 45,
+    width: 100,
+    padding: 10,
+    margin: 5,
+    alignSelf: 'center',
+    borderRadius: 10,
+    position: 'absolute',
+    bottom: '15%',
+    right:'35%'
+  },
+
+  buttonText: {
+    textAlign: 'center',
+    color:'#FFFFFF',
+    fontWeight:'600',
+    fontSize: 20,
+  },
 
   /*
    * Style: Container
@@ -333,6 +394,8 @@ const styles = StyleSheet.create({
       color: GLOBAL.COLOR.GREEN,
       marginTop: 5,
       marginRight: 4
-    }
+    },
+
+    inactive: {}
 
 });
