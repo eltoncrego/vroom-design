@@ -98,7 +98,7 @@ export default class Onboarding extends Component {
   }
 
   goToScrollView() {
-    this.scrollView.scrollTo({x: 328+8, y: 0, animated: true});
+    this.scrollView.scrollTo({x: 328, y: 0, animated: true});
   }
 
 
@@ -207,11 +207,10 @@ const styles = StyleSheet.create({
    */
 
   buttonContainer: {
-    backgroundColor: '#2980b9',
+    borderColor: GLOBAL.COLOR.GREEN,
+    borderWidth: 4,
     height: 45,
     width: 100,
-    padding: 10,
-    margin: 5,
     alignSelf: 'center',
     borderRadius: 10,
     position: 'absolute',
@@ -221,9 +220,12 @@ const styles = StyleSheet.create({
 
   buttonText: {
     textAlign: 'center',
-    color:'#FFFFFF',
+    fontFamily: 'Nunito',
+    color: GLOBAL.COLOR.GREEN,
+    backgroundColor: 'transparent',
     fontWeight:'600',
     fontSize: 20,
+    margin: 10,
   },
 
   /*
