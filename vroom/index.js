@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Login from './src/components/Login/Login';
 import Onboarding from './src/components/Onboarding/Onboarding';
+import Dashboard from './src/components/Dashboard/Dashboard';
 import Revi from './src/Revi'
 import {
   AppRegistry,
@@ -25,6 +26,7 @@ const vroom = StackNavigator({
 
   Login: {screen: Login},
   Onboarding: {screen: Onboarding},
+  Dashboard: {screen: Dashboard},
 });
 
 // Pushes the Navigation Stack onto the View
