@@ -14,6 +14,7 @@ import {
   Dimensions,
   TextInput,
   KeyboardAvoidingView,
+  TouchableOpacity
 } from 'react-native';
 import Login from '../Login/Login';
 
@@ -33,15 +34,59 @@ GLOBAL = require('../../Globals');
 export default class Onboarding extends Component {
 
   /*
-   * Static: navigationOptions
+   * Method: goToLoginPage()
    * Author: Elton C. Rego
+   *
+   * Purpose: On invocation, will push the LoginPage
+   *   component onto the view stack.
+   *   (Loads the screen.)
+   */
+  goToLoginPage() {
+    const { navigate } = this.props.navigation;
+    navigate('Login');
+  }
+
+  /*
+   * Static: navigationOptions
+   * Author: Elton C. Rego, Alec Felt
    *
    * Purpose: To set the navigation bar options for this page
    */
-  static navigationOptions = {
-    title: 'Welcome',
-    header: null,
-  };
+  static navigationOptions = ({navigation, screenProps}) => ({
+
+      /*
+       * navigationOptions: title
+       * Author: Alec Felt
+       *
+       * Purpose: Add logo to navbar
+       */
+      title: <Image style={styles.icon_header} source={require('../../../assets/img/ios.png')}/>,
+
+      /*
+       * navigationOptions: headerStyle, headerRight
+       * Author: Elton C. Rego, Alec Felt
+       *
+       * Purpose: Add color/font to navbar
+       *          Add button on headerRight for navigation
+       *          options in the future
+       *
+       * TODO: style Back button on the navbar
+       * TODO: add navigation functionaility to Next button
+       * TODO: get Next/Back button styled with Nunito fontFamily
+       *       (for some reason I couldn't figure out how to)
+       */
+      headerStyle: {
+        fontFamily: 'Nunito',
+        backgroundColor: GLOBAL.COLOR.DARKGRAY
+      },
+      headerRight: (
+        // example navigation:
+        //  onPress={() => {navigation.navigate('Login');}}
+        <TouchableOpacity onPress={() => { ; }}>
+          <Text style={styles.button_header}>Next</Text>
+        </TouchableOpacity>
+      )
+  });
 
    /*
    * Method: componentDidMount()
@@ -83,6 +128,10 @@ export default class Onboarding extends Component {
     this.setState({show_last_card: true});
   }
 
+  goToScrollView() {
+    this.scrollView.scrollTo({x: 656+16, y: 0, animated: true});
+    this.setState({show_last_card: true});
+  }
   /*
    * Method: render
    * Author: Elton C. Rego
@@ -93,22 +142,22 @@ export default class Onboarding extends Component {
    */
   render() {
 
-    var last_card = this.state.show_last_card ? 
+    var last_card = this.state.show_last_card ?
       <View style={styles.card}>
         <Text style={styles.card_title}>{this.state.text}</Text>
           <Image
-            style={styles.revi_super} 
+            style={styles.revi_super}
             source={require('../../../assets/img/car-super-good.png')}
           />
         <Text style={styles.card_text}>{"I love it!"}</Text>
-      </View> 
+      </View>
       : null;
 
     // Grabs the width of the device screen and sets it to 'width'
     const { width } = Dimensions.get('window');
 
     return (
-      <KeyboardAvoidingView 
+      <KeyboardAvoidingView
         style={styles.container}
         behavior="padding"
       >
@@ -124,7 +173,7 @@ export default class Onboarding extends Component {
           decelerationRate={0}
           snapToInterval={312+32}
           snapToAlignment={"center"}
-          showsHorizontalScrollIndicator={false}
+          showsHorizontalScrollIndicator={true}
           contentInset={{
             top: 0,
             left: 16,
@@ -160,10 +209,16 @@ export default class Onboarding extends Component {
 
           {/* Card 3: Hide if no name*/}
           {last_card}
-
         </ScrollView>
         </View>
-
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          activeOpacity={0.8}
+          onPress={
+            () => this.goToScrollView()
+        }>
+          <Text style={styles.buttonText}>Next</Text>
+        </TouchableOpacity>
       </KeyboardAvoidingView>
     );
   }
@@ -174,6 +229,32 @@ export default class Onboarding extends Component {
  * Author: Elton C. Rego
  */
 const styles = StyleSheet.create({
+
+  /*
+   * Style: Button
+   * Author: Tianyi Zhang
+   * Purpose: This styles the Next button
+   */
+
+  buttonContainer: {
+    backgroundColor: '#2980b9',
+    height: 45,
+    width: 100,
+    padding: 10,
+    margin: 5,
+    alignSelf: 'center',
+    borderRadius: 10,
+    position: 'absolute',
+    bottom: '15%',
+    right:'35%'
+  },
+
+  buttonText: {
+    textAlign: 'center',
+    color:'#FFFFFF',
+    fontWeight:'600',
+    fontSize: 20,
+  },
 
   /*
    * Style: Container
@@ -288,5 +369,31 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
   },
+  /*
+   * Style: Icon Header
+   * Author: Alec Felt
+   * Purpose: Add style to the navbar icon
+   *          to stay consistent with project theme
+   */
+   icon_header: {
+     height: 35,
+     width: 35,
+     marginTop: 7
+   },
 
+   /*
+    * Style: Button Header
+    * Author: Alec Felt
+    * Purpose: Add style to the navbar button
+    *          to stay consistent with project theme
+    */
+    button_header: {
+      fontSize: 16,
+      fontFamily: 'Nunito',
+      color: GLOBAL.COLOR.GREEN,
+      marginTop: 5,
+      marginRight: 4
+    },
+
+    inactive: {}
 });
