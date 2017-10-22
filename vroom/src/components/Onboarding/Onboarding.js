@@ -93,7 +93,7 @@ export default class Onboarding extends Component {
    *   and scroll to it
    */
   nameEntered() {
-    this.scrollView.scrollTo({x: 656+16, y: 0, animated: true});
+    this.scrollView.scrollToEnd({animated: true});
     this.setState({show_last_card: true});
   }
 
@@ -340,5 +340,5 @@ const styles = StyleSheet.create({
     width: 120,
   },
 
-    inactive: {}
+  inactive: {},
 });
