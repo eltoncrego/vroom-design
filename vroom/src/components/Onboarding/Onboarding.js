@@ -65,7 +65,7 @@ export default class Onboarding extends Component {
    */
   constructor(props) {
     super(props);
-    this.state = {text: ''};
+    this.state = {text: 'My Car'};
   }
 
   /*
@@ -122,7 +122,7 @@ export default class Onboarding extends Component {
         >
           {/* Card 1 */}
           <View style={styles.card}>
-            <Text style={styles.card_title}>{"It's Me!"}</Text>
+            <Text style={styles.card_title}>{"Hello!"}</Text>
             <Image
               style={styles.revi}
               source={require('../../../assets/img/car-good.png')}
