@@ -13,6 +13,7 @@ import {
   ScrollView,
   Dimensions,
   TextInput,
+  KeyboardAvoidingView,
 } from 'react-native';
 import Login from '../Login/Login';
 
@@ -95,7 +96,10 @@ export default class Onboarding extends Component {
     const { width } = Dimensions.get('window');
 
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView 
+        style={styles.container}
+        behavior="padding"
+      >
 
         <View style={styles.cards_container}>
         <StatusBar
@@ -111,9 +115,9 @@ export default class Onboarding extends Component {
           showsHorizontalScrollIndicator={false}
           contentInset={{
             top: 0,
-            left: 32,
+            left: 16,
             bottom: 0,
-            right: 32,
+            right: 16,
           }}
         >
           {/* Card 1 */}
@@ -138,6 +142,9 @@ export default class Onboarding extends Component {
               placeholder="Type in my name!"
               onChangeText={(text) => this.setState({text})}
               underlineColorAndroid={'#ffffff'}
+              onSubmitEditing={
+                () => this.scrollView.scrollTo({x: 656+16, y: 0, animated: true})
+              }
             />
           </View>
 
@@ -152,7 +159,7 @@ export default class Onboarding extends Component {
           </View>
         </ScrollView>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
