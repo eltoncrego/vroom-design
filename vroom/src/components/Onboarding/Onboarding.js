@@ -98,9 +98,10 @@ export default class Onboarding extends Component {
   }
 
   goToScrollView() {
-    this.scrollView.scrollTo({x: 656+16, y: 0, animated: true});
-    this.setState({show_last_card: true});
+    this.scrollView.scrollTo({x: 328+8, y: 0, animated: true});
   }
+
+
   /*
    * Method: render
    * Author: Elton C. Rego
@@ -142,7 +143,7 @@ export default class Onboarding extends Component {
           decelerationRate={0}
           snapToInterval={312+32}
           snapToAlignment={"center"}
-          showsHorizontalScrollIndicator={true}
+          showsHorizontalScrollIndicator={false}
           contentInset={{
             top: 0,
             left: 16,

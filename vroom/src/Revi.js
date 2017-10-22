@@ -22,7 +22,7 @@ export default class Revi extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      is_exlaiming: true,
+      is_exlaiming: false,
     };
   }
 
