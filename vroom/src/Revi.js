@@ -26,10 +26,6 @@ export default class Revi extends Component{
     };
   }
 
-  makeExlaim(){
-
-  }
-
   /*
    * Method: render
    * Author: Elton C. Rego 
