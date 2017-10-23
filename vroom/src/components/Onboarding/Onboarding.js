@@ -95,7 +95,7 @@ export default class Onboarding extends Component {
    */
   nameEntered() {
     this.setState({show_last_card: true});
-    this.scrollView.scrollToEnd({animated: true});
+    this.scrollView.scrollTo({x: 672, y:0, animated: true});
     this.setState({scroll_enabled: false});
   }
 
@@ -126,6 +126,18 @@ export default class Onboarding extends Component {
         <Text style={styles.card_text}>{"I love it!"}</Text>
       </View>
       : null;
+
+    var next_button = this.state.scroll_enabled ?
+      <TouchableOpacity
+          style={styles.buttonContainer}
+          activeOpacity={0.8}
+          onPress={
+            () => this.goToScrollView()
+        }>
+          <Text style={styles.buttonText}>Next</Text>
+      </TouchableOpacity>
+      : null;
+
 
     // Grabs the width of the device screen and sets it to 'width'
     const { width } = Dimensions.get('window');
@@ -186,14 +198,7 @@ export default class Onboarding extends Component {
           {last_card}
         </ScrollView>
         </View>
-        <TouchableOpacity
-          style={styles.buttonContainer}
-          activeOpacity={0.8}
-          onPress={
-            () => this.goToScrollView()
-        }>
-          <Text style={styles.buttonText}>Next</Text>
-        </TouchableOpacity>
+        {next_button}
       </KeyboardAvoidingView>
     );
   }
@@ -213,15 +218,15 @@ const styles = StyleSheet.create({
 
   buttonContainer: {
     backgroundColor: GLOBAL.COLOR.GREEN,
-    padding: 8,
-    paddingHorizontal: 16,
+    padding: 12,
+    paddingHorizontal: 24,
     borderRadius: 20,
   },
 
   buttonText: {
     textAlign: 'center',
     fontFamily: 'Nunito',
-    color: GLOBAL.COLOR.BLUE,
+    color: GLOBAL.COLOR.DARKGRAY,
     backgroundColor: 'transparent',
     fontSize: 20,
     fontWeight: '600',
