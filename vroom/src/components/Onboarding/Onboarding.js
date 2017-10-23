@@ -82,6 +82,7 @@ export default class Onboarding extends Component {
     this.state = {
       text: 'My Car',
       show_last_card: false,
+      scroll_enabled: true,
     };
   }
 
@@ -93,12 +94,15 @@ export default class Onboarding extends Component {
    *   and scroll to it
    */
   nameEntered() {
-    this.scrollView.scrollToEnd({animated: true});
     this.setState({show_last_card: true});
+    this.scrollView.scrollToEnd({animated: true});
+    this.setState({scroll_enabled: false});
   }
 
   goToScrollView() {
-    this.scrollView.scrollTo({x: 328, y: 0, animated: true});
+    if(this.state.scroll_enabled){
+      this.scrollView.scrollTo({x: 328, y: 0, animated: true});
+    }
   }
 
 
@@ -150,6 +154,7 @@ export default class Onboarding extends Component {
             bottom: 0,
             right: 16,
           }}
+          scrollEnabled={this.state.scroll_enabled}
         >
           {/* Card 1 */}
           <View style={styles.card}>
@@ -207,33 +212,19 @@ const styles = StyleSheet.create({
    */
 
   buttonContainer: {
-<<<<<<< HEAD
-    borderColor: GLOBAL.COLOR.GREEN,
-    borderWidth: 4,
-=======
-    backgroundColor: GLOBAL.COLOR.BLUE,
->>>>>>> cccb4c7d3664190f690b68ed4040777964462282
-    height: 45,
-    width: 100,
-    alignSelf: 'center',
-    borderRadius: 10,
-    position: 'absolute',
-    bottom: '15%',
-    right:'35%'
+    backgroundColor: GLOBAL.COLOR.GREEN,
+    padding: 8,
+    paddingHorizontal: 16,
+    borderRadius: 20,
   },
 
   buttonText: {
     textAlign: 'center',
-<<<<<<< HEAD
     fontFamily: 'Nunito',
-    color: GLOBAL.COLOR.GREEN,
+    color: GLOBAL.COLOR.BLUE,
     backgroundColor: 'transparent',
-=======
-    color: GLOBAL.COLOR.WHITE,
->>>>>>> cccb4c7d3664190f690b68ed4040777964462282
-    fontWeight:'600',
     fontSize: 20,
-    margin: 10,
+    fontWeight: '600',
   },
 
   /*
