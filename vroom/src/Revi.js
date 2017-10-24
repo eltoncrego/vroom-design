@@ -7,8 +7,11 @@ import {
   LayoutAnimation,
   TouchableOpacity,
 } from 'react-native';
+import Animation from 'lottie-react-native';
+import revi from '../assets/animations/revi-hi.json';
 
 GLOBAL = require('./Globals');
+
 
 export default class Revi extends Component{
 
@@ -21,9 +24,10 @@ export default class Revi extends Component{
    */
   constructor(props) {
     super(props);
-    this.state = {
-      is_exlaiming: false,
-    };
+  }
+
+  componentDidMount() {
+    this.animation.play();
   }
 
   /*
@@ -34,42 +38,20 @@ export default class Revi extends Component{
    * 
    */
   render() {
-
-    var exclaim = this.state.is_exlaiming ? 
-      <View style={styles.exclaims}>
-        <View style={styles.left_exclaim}></View>
-        <View style={styles.mid_exclaim}></View>
-        <View style={styles.right_exclaim}></View>
-      </View>
-      : null;
-
     return (
       <View style={styles.revi}>
-        {exclaim}
-        <View style={styles.torso}>
-          <View style={styles.glass}>
-            <View style={styles.glass_inside}>
-            </View>
-          </View>
-          <View style={styles.body}>
-            <View style={styles.face}>
-              <View style={styles.eyes}>
-                <View style={styles.eye}>
-                </View>
-                <View style={styles.mouth}>
-                </View>
-                <View style={styles.eye}>
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
-        <View style={styles.wheels}>
-          <View style={styles.wheel}>
-          </View>
-          <View style={styles.wheel}>
-          </View>
-        </View>
+        <Animation
+            ref={animation => {
+              this.animation = animation;
+            }}
+            style={{
+              alignSelf: 'center',
+              width: 180,
+              height: 180,
+            }}
+            loop={false}
+            source={revi}
+          />
       </View>
     );
   }

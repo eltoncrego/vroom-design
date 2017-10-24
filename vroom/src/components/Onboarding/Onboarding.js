@@ -16,7 +16,9 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity
 } from 'react-native';
+import Animation from 'lottie-react-native';
 import Login from '../Login/Login';
+import revi from '../../../assets/animations/revi-hi.json';
 
 GLOBAL = require('../../Globals');
 
@@ -67,7 +69,8 @@ export default class Onboarding extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.scrollView.scrollTo({x: -16})
-    }, 1) // scroll view position fix
+    }, 1);
+    this.animation.play();
   }
 
    /*
@@ -99,11 +102,20 @@ export default class Onboarding extends Component {
     this.setState({scroll_enabled: false});
   }
 
+  /*
+   * Method: goToScrollView()
+   * Author: Teeny
+   *
+   * Purpose: On invocation scrolls to the next page
+   *   in the onboarding
+   */
   goToScrollView() {
     if(this.state.scroll_enabled){
       this.scrollView.scrollTo({x: 328, y: 0, animated: true});
     }
   }
+
+
 
 
   /*
@@ -171,10 +183,14 @@ export default class Onboarding extends Component {
           {/* Card 1 */}
           <View style={styles.card}>
             <Text style={styles.card_title}>{"Hello!"}</Text>
-            <Image
-              style={styles.revi}
-              source={require('../../../assets/img/car-good.png')}
-            />
+            <View style={styles.revi_animations}>
+              <Animation
+                ref={animation => {this.animation = animation;}}
+                style={{width: '100%', height: '100%',}}
+                loop={false}
+                source={revi}
+              />
+            </View>
             <Text style={styles.card_text}>{"I'm your car!"}</Text>
           </View>
 
@@ -333,6 +349,19 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     height: 120,
     width: 120,
+  },
+
+   /*
+   * Style: Revi Animations
+   * Author: Elton C. Rego
+   * Purpose: This styles the Revis on each card
+   */
+  revi_animations: {
+    alignSelf: 'center',
+    height: 220,
+    width: 220,
+    zIndex:2,
+    margin: -32,
   },
 
   /*
