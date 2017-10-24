@@ -14,7 +14,8 @@ import {
   Dimensions,
   TextInput,
   KeyboardAvoidingView,
-  TouchableOpacity
+  TouchableOpacity,
+  Sound,
 } from 'react-native';
 import Animation from 'lottie-react-native';
 import Login from '../Login/Login';
@@ -358,10 +359,10 @@ const styles = StyleSheet.create({
    */
   revi_animations: {
     alignSelf: 'center',
-    height: 220,
-    width: 220,
+    height: 240,
+    width: 240,
     zIndex:2,
-    margin: -32,
+    marginTop: -32,
   },
 
   /*
