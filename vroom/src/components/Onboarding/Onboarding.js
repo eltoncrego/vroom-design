@@ -20,6 +20,7 @@ import {
 import Animation from 'lottie-react-native';
 import Login from '../Login/Login';
 import revi from '../../../assets/animations/revi-hi.json';
+import revi_on from '../../../assets/animations/revi-on.json';
 
 GLOBAL = require('../../Globals');
 
@@ -72,6 +73,7 @@ export default class Onboarding extends Component {
       this.scrollView.scrollTo({x: -16})
     }, 1);
     this.animation.play();
+    this.animation2.play();
   }
 
    /*
@@ -198,10 +200,14 @@ export default class Onboarding extends Component {
           {/* Card 2 */}
           <View style={styles.card}>
             <Text style={styles.card_title}>{"My name is.."}</Text>
-            <Image
-              style={styles.revi}
-              source={require('../../../assets/img/car-good.png')}
-            />
+             <View style={styles.revi_animations}>
+              <Animation
+                ref={animation => {this.animation2 = animation;}}
+                style={{width: '100%', height: '100%',}}
+                loop={true}
+                source={revi_on}
+              />
+            </View>
             <TextInput
               style={styles.card_text_input}
               placeholder="Type in my name!"
