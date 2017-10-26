@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/eltoncrego/vroom-app/blob/master/assets/companylogofullv2@0.5.png?raw=true" width="500"></p>
+<p align="center"><img src="https://github.com/eltoncrego/vroom-app/blob/master/assets/companylogofullv2@0.5x.png?raw=true" width="500"></p>
 
 # Vroom
 The app that keeps your car running!
