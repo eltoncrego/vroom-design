@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/eltoncrego/vroom-app/blob/master/assets/android.png?raw=true" width="150"></p>
+<p align="center"><img src="https://github.com/eltoncrego/vroom-app/assets/companylogofullv2.png?raw=true" width="150"></p>
 
 # Building the Application for the First Time
 ## On Mac
