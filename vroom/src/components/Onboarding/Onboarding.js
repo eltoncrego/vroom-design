@@ -89,6 +89,7 @@ export default class Onboarding extends Component {
       text: 'My Car',
       show_last_card: false,
       scroll_enabled: true,
+      buttonText: 'Next',
     };
   }
 
@@ -118,9 +119,6 @@ export default class Onboarding extends Component {
     }
   }
 
-
-
-
   /*
    * Method: render
    * Author: Elton C. Rego
@@ -149,7 +147,7 @@ export default class Onboarding extends Component {
           onPress={
             () => this.goToScrollView()
         }>
-          <Text style={styles.buttonText}>Next</Text>
+          <Text style={styles.buttonText}>{this.state.buttonText}</Text>
       </TouchableOpacity>
       : null;
 
