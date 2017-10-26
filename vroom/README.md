@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://github.com/eltoncrego/vroom-app/blob/master/assets/companylogofullv2.png?raw=true" width="500">
+	<img src="https://github.com/eltoncrego/vroom-app/blob/master/assets/companylogofullv2@0.5.png?raw=true" width="500">
 </p>
 
 # Building the Application for the First Time
