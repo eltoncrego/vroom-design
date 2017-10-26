@@ -114,9 +114,18 @@ export default class Onboarding extends Component {
    *   in the onboarding
    */
   goToScrollView() {
+    if (this.state.buttonText === "Submit"){
+      this.nameEntered();
+    }
+
     if(this.state.scroll_enabled){
       this.scrollView.scrollTo({x: 328, y: 0, animated: true});
     }
+  }
+
+  textEntered(text){
+    this.setState(text);
+    this.setState({buttonText: 'Submit'});
   }
 
   /*
@@ -150,7 +159,6 @@ export default class Onboarding extends Component {
           <Text style={styles.buttonText}>{this.state.buttonText}</Text>
       </TouchableOpacity>
       : null;
-
 
     // Grabs the width of the device screen and sets it to 'width'
     const { width } = Dimensions.get('window');
@@ -209,7 +217,7 @@ export default class Onboarding extends Component {
             <TextInput
               style={styles.card_text_input}
               placeholder="Type in my name!"
-              onChangeText={(text) => this.setState({text})}
+              onChangeText={(text) => this.textEntered({text})}
               underlineColorAndroid={'#ffffff'}
               onSubmitEditing={ () => this.nameEntered()}
             />
