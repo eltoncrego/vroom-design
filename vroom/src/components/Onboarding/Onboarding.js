@@ -416,6 +416,5 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
   },
-
-  inactive: {},
+  
 });
