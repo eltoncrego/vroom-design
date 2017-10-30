@@ -119,7 +119,7 @@ export default class Onboarding extends Component {
       this.scrollView.scrollTo({x: 328, y: 0, animated: true});
     }
   }
-  
+
   /*
    * Method: render
    * Author: Elton C. Rego
