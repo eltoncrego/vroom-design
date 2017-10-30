@@ -2,12 +2,16 @@
  * Import all the necessary components for this page.
  * Please delete components that aren't used.
  */
+
+// Global Requirements
 import React, { Component } from 'react';
+GLOBAL = require('../../Globals');
+
+// Components
 import {
   View,
   Text,
   Button,
-  Image,
   StyleSheet,
   StatusBar,
   ScrollView,
@@ -15,15 +19,13 @@ import {
   TextInput,
   KeyboardAvoidingView,
   TouchableOpacity,
-  Sound,
 } from 'react-native';
+
+// Files Needed
 import Animation from 'lottie-react-native';
-import Login from '../Login/Login';
 import revi from '../../../assets/animations/revi-hi.json';
 import revi_on from '../../../assets/animations/revi-on.json';
 import revi_super_happy from '../../../assets/animations/revi-super-happy.json';
-
-GLOBAL = require('../../Globals');
 
 /*
  * Class: Onboarding
@@ -37,19 +39,6 @@ GLOBAL = require('../../Globals');
  * TODO: Take in make, model, and year and end this screen
  */
 export default class Onboarding extends Component {
-
-  /*
-   * Method: goToLoginPage()
-   * Author: Elton C. Rego
-   *
-   * Purpose: On invocation, will push the LoginPage
-   *   component onto the view stack.
-   *   (Loads the screen.)
-   */
-  goToLoginPage() {
-    const { navigate } = this.props.navigation;
-    navigate('Login');
-  }
 
   /*
    * Static: navigationOptions
@@ -130,6 +119,15 @@ export default class Onboarding extends Component {
    */
   render() {
 
+    /*
+     * Variable: last_card
+     * Author: Elton C. Rego
+     *
+     * Purpose: Sets the value of last_card based on the
+     *   boolean value of show_last_card. If true, card
+     *   is visible and animation is playable, if not vise
+     *   versa.
+     */
     var last_card = this.state.show_last_card ?
       <View style={styles.card}>
         <Text style={styles.card_title}>{this.state.text}</Text>
@@ -137,7 +135,7 @@ export default class Onboarding extends Component {
               <Animation
                 ref={animation => {this.animation3 = animation;}}
                 style={{width: '100%', height: '100%',}}
-                loop={false}
+                loop={true}
                 source={revi_super_happy}
               />
           </View>
@@ -156,6 +154,15 @@ export default class Onboarding extends Component {
         <Text style={styles.card_text}>{"I love it!"}</Text>
       </View>;
 
+    /*
+     * Variable: next_button
+     * Author: Elton C. Rego
+     *
+     * Purpose: Sets the value of next_button based on the
+     *   boolean value of scroll_enabled. If scrolling is
+     *   possible, allow button to be show, if not do not show
+     *   button.
+     */
     var next_button = this.state.scroll_enabled ?
       <TouchableOpacity
           style={styles.buttonContainer}
@@ -166,9 +173,6 @@ export default class Onboarding extends Component {
           <Text style={styles.buttonText}>{'Next'}</Text>
       </TouchableOpacity>
       : null;
-
-    // Grabs the width of the device screen and sets it to 'width'
-    const { width } = Dimensions.get('window');
 
     return (
       <KeyboardAvoidingView
