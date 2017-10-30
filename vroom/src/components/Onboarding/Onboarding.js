@@ -20,9 +20,9 @@ import {
   KeyboardAvoidingView,
   TouchableOpacity,
 } from 'react-native';
+import Animation from 'lottie-react-native';
 
 // Files Needed
-import Animation from 'lottie-react-native';
 import revi from '../../../assets/animations/revi-hi.json';
 import revi_on from '../../../assets/animations/revi-on.json';
 import revi_super_happy from '../../../assets/animations/revi-super-happy.json';
@@ -416,5 +416,5 @@ const styles = StyleSheet.create({
     height: 120,
     width: 120,
   },
-  
+
 });

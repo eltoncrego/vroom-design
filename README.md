@@ -10,3 +10,47 @@ If you wish to collaborate a trial or license of Sketch is necessary to do so.
 
 ## Development Phase
 Currently we are using React Native to build our app for iOS and Android. We are using Firebase to store data.
+
+# Code Style Guide
+A majority of the code is written in JavaScript. Since this is a relatively verbose language that is easy to read, it shouldn't be too hard to keep the code simple and easy to read.
+
+## Layout
+Always begin the file with any imports that you might need for that component. Include the following comment at the top:
+
+```javascript
+/*
+ * Import all the necessary components for this page.
+ * Please delete components that aren't used.
+ */
+```
+
+Each import area of the component must be in the following order with examples/
+
+```javascript
+// Global Requirements
+import React, { Component } from 'react';
+
+// Components
+import {
+  View,
+} from 'react-native';
+import Animation from 'lottie-react-native';
+
+// Files Needed
+import revi from '../../../assets/animations/revi-hi.json';
+```
+
+Above a major chunk of code, defined as a function, large variable, constant, or style; use the following comment style:
+
+```javascript
+/*
+ * <Type of Code Block>: <Name of Code Block>
+ * Author: <Author Name>
+ *
+ * Purpose: <Short blurb on what the code is supposed to do>
+ * 
+ * @param: <any parameters passed into a method>
+ * @return: <the return type of a method>
+ * TODO: <anything left to do, repeat if necessary, one for each task>
+ */
+```
