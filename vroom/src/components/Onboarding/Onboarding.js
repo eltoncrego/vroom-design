@@ -21,6 +21,7 @@ import Animation from 'lottie-react-native';
 import Login from '../Login/Login';
 import revi from '../../../assets/animations/revi-hi.json';
 import revi_on from '../../../assets/animations/revi-on.json';
+import revi_super_happy from '../../../assets/animations/revi-super-happy.json';
 
 GLOBAL = require('../../Globals');
 
@@ -89,7 +90,6 @@ export default class Onboarding extends Component {
       text: 'My Car',
       show_last_card: false,
       scroll_enabled: true,
-      buttonText: 'Next',
     };
   }
 
@@ -104,6 +104,7 @@ export default class Onboarding extends Component {
     this.setState({show_last_card: true});
     this.scrollView.scrollTo({x: 672, y:0, animated: true});
     this.setState({scroll_enabled: false});
+    this.animation3.play();
   }
 
   /*
@@ -114,20 +115,11 @@ export default class Onboarding extends Component {
    *   in the onboarding
    */
   goToScrollView() {
-    if (this.state.buttonText === "Submit"){
-      this.nameEntered();
-    }
-
     if(this.state.scroll_enabled){
       this.scrollView.scrollTo({x: 328, y: 0, animated: true});
     }
   }
-
-  textEntered(text){
-    this.setState(text);
-    this.setState({buttonText: 'Submit'});
-  }
-
+  
   /*
    * Method: render
    * Author: Elton C. Rego
@@ -141,10 +133,14 @@ export default class Onboarding extends Component {
     var last_card = this.state.show_last_card ?
       <View style={styles.card}>
         <Text style={styles.card_title}>{this.state.text}</Text>
-          <Image
-            style={styles.revi_super}
-            source={require('../../../assets/img/car-super-good.png')}
-          />
+          <View style={styles.revi_animations}>
+              <Animation
+                ref={animation => {this.animation3 = animation;}}
+                style={{width: '100%', height: '100%',}}
+                loop={true}
+                source={revi_super_happy}
+              />
+          </View>
         <Text style={styles.card_text}>{"I love it!"}</Text>
       </View>
       : null;
@@ -156,7 +152,7 @@ export default class Onboarding extends Component {
           onPress={
             () => this.goToScrollView()
         }>
-          <Text style={styles.buttonText}>{this.state.buttonText}</Text>
+          <Text style={styles.buttonText}>{'Next'}</Text>
       </TouchableOpacity>
       : null;
 
@@ -217,7 +213,7 @@ export default class Onboarding extends Component {
             <TextInput
               style={styles.card_text_input}
               placeholder="Type in my name!"
-              onChangeText={(text) => this.textEntered({text})}
+              onChangeText={(text) => this.setState({text})}
               underlineColorAndroid={'#ffffff'}
               onSubmitEditing={ () => this.nameEntered()}
             />
