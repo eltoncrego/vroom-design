@@ -137,13 +137,24 @@ export default class Onboarding extends Component {
               <Animation
                 ref={animation => {this.animation3 = animation;}}
                 style={{width: '100%', height: '100%',}}
-                loop={true}
+                loop={false}
                 source={revi_super_happy}
               />
           </View>
         <Text style={styles.card_text}>{"I love it!"}</Text>
       </View>
-      : null;
+      : <View style={styles.card_inactive}>
+        <Text style={styles.card_title}>{this.state.text}</Text>
+          <View style={styles.revi_animations}>
+              <Animation
+                ref={animation => {this.animation3 = animation;}}
+                style={{width: '100%', height: '100%',}}
+                loop={false}
+                source={revi_super_happy}
+              />
+          </View>
+        <Text style={styles.card_text}>{"I love it!"}</Text>
+      </View>;
 
     var next_button = this.state.scroll_enabled ?
       <TouchableOpacity
@@ -294,6 +305,24 @@ const styles = StyleSheet.create({
    * Purpose: This styles the card view within this page
    */
   card: {
+    alignSelf: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#ffffff',
+    width: 312,
+    height: 344,
+    borderRadius: 20,
+    alignItems: 'center',
+    overflow: 'hidden',
+    margin: 16,
+  },
+
+  /*
+   * Style: Card
+   * Author: Elton C. Rego
+   * Purpose: This styles the card view within this page
+   */
+  card_inactive: {
+    display: 'none',
     alignSelf: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#ffffff',
