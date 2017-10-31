@@ -8,12 +8,7 @@ Design of Vroom is being done in Sketch and exported to this github for easy acc
 Please pull the repository and reference the exports/assets folders for completed designs.
 If you wish to collaborate a trial or license of Sketch is necessary to do so.
 
-## Development Phase
-Currently we are using React Native to build our app for iOS and Android. We are using Firebase to store data.
-
-# Code Style Guide
-A majority of the code is written in JavaScript. Since this is a relatively verbose language that is easy to read, it shouldn't be too hard to keep the code simple and easy to read.
-
+## Development Phase 
 ## Layout
 Always begin the file with any imports that you might need for that component. Include the following comment at the top:
 
