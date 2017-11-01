@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     textAlign: 'center',
     fontSize: 80,
-    color: GLOBAL.COLOR.WHITE,
+    color: GLOBAL.COLOR.GRAY,
     marginBottom: -5
   },
   /*
