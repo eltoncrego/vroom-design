@@ -18,6 +18,8 @@ GLOBAL = require('../../Globals');
 
 export default class EmailPasswordLogin extends Component {
 
+  // Author: Alec Felt
+  // Purpose: sets up state for TextInput/Authentication use
   constructor(props) {
     super(props);
     this.state = { email: 'null', password: 'null' };
@@ -33,14 +35,22 @@ export default class EmailPasswordLogin extends Component {
     navigate('Onboarding')
   }
 
+  // Author: Alec Felt
+  // Purpose: Checks state.email and state.password and
+  //          authenticates the user with Firebase
   login() {
 
   }
 
+  // Author: Alec Felt
+  // Purpose: navigates to a signup component
+  // TODO: Write the function and create the signup component
   signup() {
 
   }
 
+  // Author: Alec Felt
+  // Purpose: Renders UI for login
   render() {
     return (
       <View style={styles.container}>
