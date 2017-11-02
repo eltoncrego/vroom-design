@@ -38,12 +38,16 @@ const vroom = StackNavigator({
  * Author: Alec Felt
  * Purpose: Attach our app to our database
  */
-firebase.initializeApp({
-    apiKey: "AIzaSyBqhwQ347WWd_LraUv25AKsog5Xl-uiXKg",
-    authDomain: "vroom-d5c0e.firebaseapp.com",
-    databaseURL: "https://vroom-d5c0e.firebaseio.com",
-    storageBucket: "vroom-d5c0e.appspot.com"
-});
+ // Initialize Firebase
+ const config = {
+   apiKey: "AIzaSyBqhwQ347WWd_LraUv25AKsog5Xl-uiXKg",
+   authDomain: "vroom-d5c0e.firebaseapp.com",
+   databaseURL: "https://vroom-d5c0e.firebaseio.com",
+   projectId: "vroom-d5c0e",
+   storageBucket: "vroom-d5c0e.appspot.com",
+   messagingSenderId: "52629805323"
+ };
+ export const firebaseRef = firebase.initializeApp(config);
 
 // Pushes the Navigation Stack onto the View
 AppRegistry.registerComponent('vroom', () => vroom);

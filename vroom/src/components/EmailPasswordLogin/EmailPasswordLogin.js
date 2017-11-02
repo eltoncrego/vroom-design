@@ -12,6 +12,7 @@ import {
 import Onboarding from '../Onboarding/Onboarding';
 import FadeInView from '../Login/Login';
 import * as firebase from 'firebase';
+import {firebaseRef} from '../../../index.js';
 import Database from '../Database/Database';
 
 GLOBAL = require('../../Globals');
@@ -22,7 +23,15 @@ export default class EmailPasswordLogin extends Component {
   // Purpose: sets up state for TextInput/Authentication use
   constructor(props) {
     super(props);
-    this.state = { email: 'null', password: 'null' };
+    this.state = {
+      email: '',
+      password: '',
+      status: ''
+    };
+  }
+
+  componentDidMount() {
+
   }
 
   static navigationOptions = {
@@ -38,15 +47,26 @@ export default class EmailPasswordLogin extends Component {
   // Author: Alec Felt
   // Purpose: Checks state.email and state.password and
   //          authenticates the user with Firebase
-  login() {
-
+  login = () => {
+    firebaseRef.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorMessage);
+      // ...
+    });
   }
 
   // Author: Alec Felt
   // Purpose: navigates to a signup component
   // TODO: Write the function and create the signup component
-  signup() {
-
+  signup = () => {
+    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+    });
   }
 
   // Author: Alec Felt
@@ -63,7 +83,7 @@ export default class EmailPasswordLogin extends Component {
               placeholderTextColor={GLOBAL.COLOR.GRAY}
               style={styles.input}
               placeholder="email"
-              onChangeText={(email) => this.setState({email})}
+              onChangeText={(text) => this.setState({email: text})}
               onSubmitEditing={ () => this.login() }
             />
           </View>
@@ -72,7 +92,7 @@ export default class EmailPasswordLogin extends Component {
               placeholderTextColor={GLOBAL.COLOR.GRAY}
               style={styles.input}
               placeholder="password"
-              onChangeText={(password) => this.setState({password})}
+              onChangeText={(text) => this.setState({password: text})}
               onSubmitEditing={ () => this.login() }
             />
           </View>
@@ -118,7 +138,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: GLOBAL.COLOR.DARKGRAY,
   },
@@ -173,7 +193,8 @@ const styles = StyleSheet.create({
    * Purpose: adds alignment/spacing to the buttons
    */
   buttons: {
-    marginTop: 10
+    marginTop: 10,
+    marginBottom: 10,
   },
   /*
    * Style: inputs
