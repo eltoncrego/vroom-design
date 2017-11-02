@@ -53,6 +53,7 @@ export default class EmailPasswordLogin extends Component {
       var errorCode = error.code;
       var errorMessage = error.message;
       console.log(errorMessage);
+      console.log(errorCode);
       // ...
     });
   }
@@ -61,10 +62,12 @@ export default class EmailPasswordLogin extends Component {
   // Purpose: navigates to a signup component
   // TODO: Write the function and create the signup component
   signup = () => {
-    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+    firebaseRef.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
+      console.log(errorMessage);
+      console.log(errorCode);
       // ...
     });
   }
@@ -74,11 +77,15 @@ export default class EmailPasswordLogin extends Component {
   render() {
     return (
       <View style={styles.container}>
+
         <View style={styles.header}>
           <Text style={styles.vroom}>Vroom</Text>
         </View>
+
         <View style={styles.input_container}>
+
           <View style={styles.inputs}>
+
             <TextInput
               placeholderTextColor={GLOBAL.COLOR.GRAY}
               style={styles.input}
@@ -86,37 +93,39 @@ export default class EmailPasswordLogin extends Component {
               onChangeText={(text) => this.setState({email: text})}
               onSubmitEditing={ () => this.login() }
             />
+
           </View>
+
           <View style={styles.inputs}>
+
             <TextInput
               placeholderTextColor={GLOBAL.COLOR.GRAY}
               style={styles.input}
               placeholder="password"
-              onChangeText={(text) => this.setState({password: text})}
+              onChangeText={ (text) => this.setState( {password: text} ) }
               onSubmitEditing={ () => this.login() }
             />
+
           </View>
+
         </View>
+
         <View style={styles.buttons}>
-          <TouchableOpacity activeOpacity={0.8}
-            onPress={this.login}
-          >
+
+          <TouchableOpacity activeOpacity={0.8} onPress={ () => this.login() }>
             <View>
-              <Text style={styles.button}>
-                Login
-              </Text>
+              <Text style={styles.button}>Login</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.8}
-            onPress={this.signup}
-          >
+
+          <TouchableOpacity activeOpacity={0.8} onPress={ () => this.signup() }>
             <View>
-              <Text style={styles.button}>
-                Signup
-              </Text>
+              <Text style={styles.button}>Signup</Text>
             </View>
           </TouchableOpacity>
+
         </View>
+
       </View>
     );
   }
