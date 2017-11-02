@@ -2,4 +2,5 @@ npm install -g watchman
 npm install -g yarn
 npm install -g react-native-cli
 npm install --save react-navigation
+npm install --save -g firebase
 npm install
