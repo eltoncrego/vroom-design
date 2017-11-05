@@ -60,11 +60,34 @@ export default class Dashboard extends Component {
 
   render() {
     return (
-      <View>
-      </View>
+  /*
+   * Method: SideMenu
+   * Author: Tianyi Zhang
+   *
+   * Purpose: SideMenu Bar
+   */
+     <SideMenu
+        menu={menu}
+        isOpen={this.state.isOpen}
+        onChange={isOpen => this.updateMenuState(isOpen)}
+      >
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior="padding"
+      >
+      
+      <TouchableOpacity
+          onPress={this.toggle}
+          style={styles.button}
+        >
+      <Text>Menu</Text>        
+      </TouchableOpacity>
+      </KeyboardAvoidingView>
+      </SideMenu>
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   /*
