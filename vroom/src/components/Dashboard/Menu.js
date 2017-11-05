@@ -36,11 +36,11 @@ const styles = StyleSheet.create({
     top: 20,
   },
   item: {
-    fontSize: 14,
+    fontSize: 22,
     fontWeight: '300',
-    paddingTop: 5,
+    paddingTop: 20,
     color: GLOBAL.COLOR.DARKBLUE,
-    fontFamily: 'Arial'
+    fontFamily: 'Helvetica'
   },
 });
 
@@ -56,42 +56,42 @@ export default function Menu({ onItemSelected }) {
       </View>
 
       <Text
-        onPress={() => onItemSelected('About')}
+        onPress={() => onItemSelected('Home')}
         style={styles.item}
       >
         Home
       </Text>
 
       <Text
-        onPress={() => onItemSelected('Contacts')}
+        onPress={() => onItemSelected(' My_maintenance')}
         style={styles.item}
       >
         My maintenance
       </Text>
 
       <Text
-        onPress={() => onItemSelected('Contacts')}
+        onPress={() => onItemSelected('Nearby')}
         style={styles.item}
       >
         Nearby
       </Text>
 
       <Text
-        onPress={() => onItemSelected('Contacts')}
+        onPress={() => onItemSelected('About_my_car')}
         style={styles.item}
       >
         About my car
       </Text>
 
       <Text
-        onPress={() => onItemSelected('Contacts')}
+        onPress={() => onItemSelected('Car_management')}
         style={styles.item}
       >
         Car management
       </Text>
 
       <Text
-        onPress={() => onItemSelected('Contacts')}
+        onPress={() => onItemSelected(' Settings')}
         style={styles.item}
       >
         Settings

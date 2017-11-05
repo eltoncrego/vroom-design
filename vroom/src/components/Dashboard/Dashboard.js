@@ -9,6 +9,8 @@ import {
   StyleSheet,
   Image,
   Text,
+  TouchableOpacity,
+  KeyboardAvoidingView
 } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import Menu from './Menu';
@@ -75,7 +77,12 @@ export default class Dashboard extends Component {
     super(props);
 
     this.toggle = this.toggle.bind(this);
+
+    this.state = {
+      text: 'My Car',
     };
+
+    }
 
   /*
    * Method: updateMenuState, onMenuItemSelected, toggle
@@ -102,6 +109,8 @@ export default class Dashboard extends Component {
     });
 
   render() {
+        const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
+
     return (
   /*
    * Method: SideMenu
@@ -123,7 +132,7 @@ export default class Dashboard extends Component {
           onPress={this.toggle}
           style={styles.button}
         >
-      <Text>Menu</Text>        
+      <Text style={styles.menu}>Menu</Text>        
       </TouchableOpacity>
       </KeyboardAvoidingView>
       </SideMenu>
@@ -158,4 +167,21 @@ const styles = StyleSheet.create({
       marginTop: 5,
       marginRight: 4
     },
+
+    container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: GLOBAL.COLOR.DARKGRAY,
+  },
+    menu: {
+      fontSize: 16,
+      fontFamily: 'Nunito',
+      color: GLOBAL.COLOR.GREEN,
+      position: 'relative',
+      right: 150,
+      bottom: 280
+    }
+
+
 });
