@@ -10,6 +10,9 @@ import {
   Image,
   Text,
 } from 'react-native';
+import SideMenu from 'react-native-side-menu';
+import Menu from './Menu';
+
 
 /*
  * Class: Dashboard
