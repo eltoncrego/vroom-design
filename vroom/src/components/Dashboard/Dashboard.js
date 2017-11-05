@@ -4,8 +4,11 @@
  */
 import React, { Component } from 'react';
 import {
+  Dimensions,
   View,
   StyleSheet,
+  Image,
+  Text,
 } from 'react-native';
 
 /*
@@ -57,6 +60,43 @@ export default class Dashboard extends Component {
         </TouchableOpacity>
       )
   });
+
+  /*
+   * Method: constructor(props)
+   * Author: Elton C. Rego
+   *
+   * Purpose: Sets the state text for the card naming
+   * props: the properties passed in from the super class (index.js)
+   */
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    };
+
+  /*
+   * Method: updateMenuState, onMenuItemSelected, toggle
+   * Author: Tianyi Zhang
+   *
+   * Purpose: Functions for SideMenu
+   * props:
+   */
+
+  toggle() {
+    this.setState({
+      isOpen:!this.state.isOpen,
+      });
+  }
+
+  updateMenuState(isOpen) {
+    this.setState({ isOpen });
+  }
+
+  onMenuItemSelected = item =>
+    this.setState({
+      isOpen: false,
+      selectedItem: item,
+    });
 
   render() {
     return (
