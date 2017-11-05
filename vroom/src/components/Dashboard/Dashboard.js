@@ -9,6 +9,7 @@ import {
   StyleSheet,
   Image,
   Text,
+  TouchableOpacity
 } from 'react-native';
 
 /*
@@ -115,12 +116,12 @@ export default class Dashboard extends Component {
         style={styles.container}
         behavior="padding"
       >
-      
+
       <TouchableOpacity
           onPress={this.toggle}
           style={styles.button}
         >
-      <Text>Menu</Text>        
+      <Text>Menu</Text>
       </TouchableOpacity>
       </KeyboardAvoidingView>
       </SideMenu>
