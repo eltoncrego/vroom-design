@@ -24,8 +24,8 @@ const vroom = StackNavigator({
   // DEBUG: Uncomment Following Line to Test Revi
   //Revi: {screen: Revi},
 
-  Login: {screen: Login},
-  Onboarding: {screen: Onboarding},
+  // Login: {screen: Login},
+  // Onboarding: {screen: Onboarding},
   Dashboard: {screen: Dashboard},
 });
 

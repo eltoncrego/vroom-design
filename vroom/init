@@ -7,4 +7,6 @@ npm install react-native-sound --save
 react-native link lottie-ios
 react-native link lottie-react-native
 react-native link
+npm install react-native-side-menu --save
+rm -rf node_modules
 npm install
